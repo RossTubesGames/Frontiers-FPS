@@ -28,10 +28,10 @@ public class Melee : MonoBehaviour
 
     private void Punch()
     {
-        Vector3 origin = transform.position;
-        Vector3 forward = transform.forward.normalized;
-
-        Vector3 center = origin + forward * range;
+        //defines where the sphere is casted
+        Vector3 origin = transform.position; //origin is punchers position so the player
+        Vector3 forward = transform.forward.normalized; //forward direction the punchers is facing
+        Vector3 center = origin + forward * range; //center is the point infront of the player at distance range
 
         Collider[] hits = Physics.OverlapSphere(center, radius, hitMask, QueryTriggerInteraction.Ignore);
 

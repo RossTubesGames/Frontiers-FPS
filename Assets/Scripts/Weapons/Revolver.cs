@@ -3,9 +3,9 @@ using UnityEngine;
 public class Revolver : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform shootOrigin;           // barrel or camera
-    [SerializeField] private ParticleSystem muzzleFlash;      // optional
-    [SerializeField] private GameObject hitImpactPrefab;      // optional
+    [SerializeField] private Transform shootOrigin;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private GameObject hitImpactPrefab;
 
     [Header("Gun")]
     [SerializeField] private float damage = 25f;
@@ -14,23 +14,30 @@ public class Revolver : MonoBehaviour
 
     [Header("Ammo")]
     [SerializeField] private int magazineSize = 6;
-    [SerializeField] private float reloadTime = 5.1f;
-    [SerializeField] private bool autoReloadWhenEmpty = false;
+    [SerializeField] private int startingReserveAmmo = 36;
+    [SerializeField] private float reloadTime = 1.0f;
+    [SerializeField] private bool autoReloadWhenEmpty = true;
 
     [Header("Hit Filtering")]
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
 
-    private int ammo;
+    private int ammoInMag;
+    private int reserveAmmo;
+
     private float nextFireTime;
     private bool reloading;
 
+    private void Awake()
+    {
+        ammoInMag = magazineSize;
+        reserveAmmo = startingReserveAmmo;
+    }
+
     private void OnEnable()
     {
-        // When switching back to the weapon, ensure it has ammo initialized
-        if (ammo <= 0) ammo = magazineSize;
-
         reloading = false;
+        CancelInvoke(nameof(FinishReload));
     }
 
     private void Update()
@@ -45,9 +52,11 @@ public class Revolver : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammo <= 0)
+            if (ammoInMag <= 0)
             {
-                if (autoReloadWhenEmpty) StartReload();
+                if (autoReloadWhenEmpty && reserveAmmo > 0)
+                    StartReload();
+
                 return;
             }
 
@@ -59,26 +68,26 @@ public class Revolver : MonoBehaviour
     private void Fire()
     {
         nextFireTime = Time.time + fireCooldown;
-        ammo--;
+        ammoInMag--;
 
-        if (muzzleFlash != null) muzzleFlash.Play();
+        if (muzzleFlash != null)
+        {
+            muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            muzzleFlash.Play(true);
+        }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
         Ray ray = new Ray(o.position, o.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, range, hitMask, QueryTriggerInteraction.Ignore))
         {
-            // Damage enemies
             if (hit.collider.CompareTag(enemyTag))
             {
                 EnemyHealth hp = hit.collider.GetComponentInParent<EnemyHealth>();
-                if (hp != null)
-                    hp.TakeDamage(damage);
-                else
-                    hit.collider.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+                if (hp != null) hp.TakeDamage(damage);
+                else hit.collider.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
             }
 
-            // Optional impact visual
             if (hitImpactPrefab != null)
             {
                 Quaternion rot = Quaternion.LookRotation(hit.normal);
@@ -86,15 +95,15 @@ public class Revolver : MonoBehaviour
             }
         }
 
-        // Optional: auto reload after last shot
-        if (ammo <= 0 && autoReloadWhenEmpty)
+        if (ammoInMag <= 0 && autoReloadWhenEmpty && reserveAmmo > 0)
             StartReload();
     }
 
     private void StartReload()
     {
         if (reloading) return;
-        if (ammo == magazineSize) return;
+        if (ammoInMag >= magazineSize) return;
+        if (reserveAmmo <= 0) return;
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
@@ -102,12 +111,22 @@ public class Revolver : MonoBehaviour
 
     private void FinishReload()
     {
-        ammo = magazineSize;
+        int needed = magazineSize - ammoInMag;
+        int take = Mathf.Min(needed, reserveAmmo);
+
+        ammoInMag += take;
+        reserveAmmo -= take;
+
         reloading = false;
     }
 
-    // Optional helper if you want to display ammo in UI later
-    public int GetAmmo() => ammo;
-    public int GetMagazineSize() => magazineSize;
+    public string GetAmmoText()
+    {
+        // Classic Doom-style: "6/36"
+        return ammoInMag + "/" + reserveAmmo;
+    }
+
+    public int GetAmmoInMag() => ammoInMag;
+    public int GetReserveAmmo() => reserveAmmo;
     public bool IsReloading() => reloading;
 }

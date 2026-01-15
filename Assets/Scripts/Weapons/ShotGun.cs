@@ -3,19 +3,20 @@ using UnityEngine;
 public class ShotGun : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform shootOrigin;      // barrel or camera
-    [SerializeField] private ParticleSystem muzzleFlash; // optional
-    [SerializeField] private GameObject hitImpactPrefab; // optional
+    [SerializeField] private Transform shootOrigin;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private GameObject hitImpactPrefab;
 
     [Header("Shotgun")]
-    [SerializeField] private int pellets = 10;                 // how many rays per shot
-    [SerializeField] private float damagePerPellet = 5f;       // each pellet damage
+    [SerializeField] private int pellets = 10;
+    [SerializeField] private float damagePerPellet = 5f;
     [SerializeField] private float range = 20f;
-    [SerializeField] private float spreadAngle = 7f;           // degrees
+    [SerializeField] private float spreadAngle = 7f;
     [SerializeField] private float fireCooldown = 0.8f;
 
     [Header("Ammo")]
-    [SerializeField] private int magazineSize = 2;
+    [SerializeField] private int magazineSize = 2;         // shells in gun
+    [SerializeField] private int startingReserveAmmo = 8;  // extra shells carried
     [SerializeField] private float reloadTime = 1.2f;
     [SerializeField] private bool autoReloadWhenEmpty = false;
 
@@ -23,14 +24,22 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
 
-    private int ammo;
+    private int ammoInMag;
+    private int reserveAmmo;
+
     private float nextFireTime;
     private bool reloading;
 
+    private void Awake()
+    {
+        ammoInMag = magazineSize;
+        reserveAmmo = startingReserveAmmo;
+    }
+
     private void OnEnable()
     {
-        if (ammo <= 0) ammo = magazineSize;
         reloading = false;
+        CancelInvoke(nameof(FinishReload));
     }
 
     private void Update()
@@ -45,9 +54,11 @@ public class ShotGun : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammo <= 0)
+            if (ammoInMag <= 0)
             {
-                if (autoReloadWhenEmpty) StartReload();
+                if (autoReloadWhenEmpty && reserveAmmo > 0)
+                    StartReload();
+
                 return;
             }
 
@@ -59,9 +70,13 @@ public class ShotGun : MonoBehaviour
     private void Fire()
     {
         nextFireTime = Time.time + fireCooldown;
-        ammo--;
+        ammoInMag--;
 
-        if (muzzleFlash != null) muzzleFlash.Play();
+        if (muzzleFlash != null)
+        {
+            muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            muzzleFlash.Play(true);
+        }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
 
@@ -89,18 +104,12 @@ public class ShotGun : MonoBehaviour
             }
         }
 
-        if (ammo <= 0 && autoReloadWhenEmpty)
+        if (ammoInMag <= 0 && autoReloadWhenEmpty && reserveAmmo > 0)
             StartReload();
     }
 
     private Vector3 GetSpreadDirection(Vector3 forward, float angleDeg)
     {
-        // Random direction inside a cone around forward
-        float angleRad = angleDeg * Mathf.Deg2Rad;
-        Vector3 rand = Random.insideUnitSphere;
-        rand.z = Mathf.Abs(rand.z); // bias forward-ish
-
-        // Small rotation around forward using random offsets
         Vector3 axis = Vector3.Cross(forward, Vector3.up);
         if (axis.sqrMagnitude < 0.0001f) axis = Vector3.right;
 
@@ -113,7 +122,9 @@ public class ShotGun : MonoBehaviour
     private void StartReload()
     {
         if (reloading) return;
-        if (ammo == magazineSize) return;
+
+        if (ammoInMag >= magazineSize) return;
+        if (reserveAmmo <= 0) return;
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
@@ -121,7 +132,24 @@ public class ShotGun : MonoBehaviour
 
     private void FinishReload()
     {
-        ammo = magazineSize;
+        int needed = magazineSize - ammoInMag;
+        int take = Mathf.Min(needed, reserveAmmo);
+
+        ammoInMag += take;
+        reserveAmmo -= take;
+
         reloading = false;
     }
+
+    public string GetAmmoText()
+    {
+        // Doom-like: "2/8" (mag / reserve)
+        return ammoInMag + "/" + reserveAmmo;
+    }
+
+    // Optional UI helpers
+    public int GetAmmoInMag() => ammoInMag;
+    public int GetReserveAmmo() => reserveAmmo;
+    public int GetMagazineSize() => magazineSize;
+    public bool IsReloading() => reloading;
 }

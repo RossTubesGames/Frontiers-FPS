@@ -13359,6 +13359,7 @@ MonoBehaviour:
   range: 60
   fireCooldown: 0.25
   magazineSize: 6
+  startingReserveAmmo: 36
   reloadTime: 1.1
   autoReloadWhenEmpty: 0
   hitMask:
@@ -18730,6 +18731,7 @@ MonoBehaviour:
   spreadAngle: 7
   fireCooldown: 0.8
   magazineSize: 2
+  startingReserveAmmo: 8
   reloadTime: 1.2
   autoReloadWhenEmpty: 0
   hitMask:
@@ -59337,6 +59339,11 @@ MonoBehaviour:
   jumpForce: 7
   jumpCoolDown: 0.1
   maxJumps: 2
+  dashKey: 122
+  dashSpeed: 20
+  dashDuration: 0.15
+  dashCooldown: 0.6
+  requireGroundedToDash: 0
 --- !u!54 &1524963951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -86100,6 +86107,7 @@ MonoBehaviour:
   - {fileID: 681318683}
   - {fileID: 2067556374}
   - {fileID: 396954323}
+  weaponUI: []
   startSlot: 1
 --- !u!43 &1907864199
 Mesh:

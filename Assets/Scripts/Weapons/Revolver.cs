@@ -74,6 +74,8 @@ public class Revolver : MonoBehaviour
         {
             muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             muzzleFlash.Play(true);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver");
+
         }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
@@ -104,6 +106,8 @@ public class Revolver : MonoBehaviour
         if (reloading) return;
         if (ammoInMag >= magazineSize) return;
         if (reserveAmmo <= 0) return;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver reload");
+
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);

@@ -76,6 +76,8 @@ public class ShotGun : MonoBehaviour
         {
             muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             muzzleFlash.Play(true);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun fire");
+
         }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
@@ -128,6 +130,8 @@ public class ShotGun : MonoBehaviour
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
+         FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun reload");
+
     }
 
     private void FinishReload()

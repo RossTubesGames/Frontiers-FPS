@@ -1,0 +1,516 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8820660764000633103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boom goblin
+  m_EditorClassIdentifier: 
+  Path: event:/Boom goblin
+  Guid:
+    Data1: 1857793809
+    Data2: 1312904221
+    Data3: 2098142084
+    Data4: 1903631861
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-5639788044394631014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Demon time end
+  m_EditorClassIdentifier: 
+  Path: event:/Demon time end
+  Guid:
+    Data1: -1396674939
+    Data2: 1148051687
+    Data3: -1522663017
+    Data4: -1602560158
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &-4225777873904149300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Axe swings
+  m_EditorClassIdentifier: 
+  Path: event:/Axe swings
+  Guid:
+    Data1: 1393251372
+    Data2: 1145242399
+    Data3: -2027936621
+    Data4: 1977364700
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1195
+--- !u!114 &-3802065044286422771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boss soundtrack
+  m_EditorClassIdentifier: 
+  Path: event:/Boss soundtrack
+  Guid:
+    Data1: -978920686
+    Data2: 1278147720
+    Data3: 28048036
+    Data4: 2042085371
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 102060
+--- !u!114 &-1745267101330049045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sword with wall swings
+  m_EditorClassIdentifier: 
+  Path: event:/Sword with wall swings
+  Guid:
+    Data1: -1710391805
+    Data2: 1180505877
+    Data3: 998784675
+    Data4: 140869951
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-927951078304314119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../Downloads/fmod project/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639041712480855841
+  FileSizes:
+  - Name: Desktop
+    Value: 1436
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -927951078304314119}
+  - {fileID: 3101505783993474628}
+  EditorEvents:
+  - {fileID: -1745267101330049045}
+  - {fileID: 7543724561696802052}
+  - {fileID: -8820660764000633103}
+  - {fileID: -3802065044286422771}
+  - {fileID: 7561431200966120218}
+  - {fileID: 6119529337907778786}
+  - {fileID: -4225777873904149300}
+  - {fileID: 2546176125036003566}
+  - {fileID: 40723859878719556}
+  - {fileID: 6299997216197579182}
+  - {fileID: -5639788044394631014}
+  - {fileID: 3281703551682564339}
+  - {fileID: 8831474514015867221}
+  - {fileID: 6936153490157592778}
+  - {fileID: 6176371994261819980}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 3101505783993474628}
+  StringsBanks:
+  - {fileID: -927951078304314119}
+  cacheVersion: 131857
+  cacheTime: 639041712480855841
+  SerializableEventsDict:
+  - key: event:/Sword with wall swings
+    index: 0
+  - key: event:/Revolver
+    index: 1
+  - key: event:/Boom goblin
+    index: 2
+  - key: event:/Boss soundtrack
+    index: 3
+  - key: event:/Heal
+    index: 4
+  - key: event:/Spider
+    index: 5
+  - key: event:/Axe swings
+    index: 6
+  - key: event:/Sword swings
+    index: 7
+  - key: event:/Demon time power up
+    index: 8
+  - key: event:/Shotgun fire
+    index: 9
+  - key: event:/Demon time end
+    index: 10
+  - key: event:/Shotgun reload
+    index: 11
+  - key: event:/Wolf howl
+    index: 12
+  - key: event:/Ammo collect
+    index: 13
+  - key: event:/Revolver reload
+    index: 14
+--- !u!114 &40723859878719556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Demon time power up
+  m_EditorClassIdentifier: 
+  Path: event:/Demon time power up
+  Guid:
+    Data1: -682885020
+    Data2: 1285878108
+    Data3: -803971695
+    Data4: 1161041480
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &2546176125036003566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sword swings
+  m_EditorClassIdentifier: 
+  Path: event:/Sword swings
+  Guid:
+    Data1: -71321764
+    Data2: 1163654783
+    Data3: 1110471067
+    Data4: 704903027
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &3101505783993474628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../../../Downloads/fmod project/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639041712480825915
+  FileSizes:
+  - Name: Desktop
+    Value: 1744192
+  Exists: 1
+--- !u!114 &3281703551682564339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shotgun reload
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun reload
+  Guid:
+    Data1: -703734856
+    Data2: 1101816079
+    Data3: -2024141145
+    Data4: 85943884
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 557
+--- !u!114 &6119529337907778786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spider
+  m_EditorClassIdentifier: 
+  Path: event:/Spider
+  Guid:
+    Data1: -484986841
+    Data2: 1321203170
+    Data3: 1738188213
+    Data4: 92266901
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7000
+--- !u!114 &6176371994261819980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Revolver reload
+  m_EditorClassIdentifier: 
+  Path: event:/Revolver reload
+  Guid:
+    Data1: 261924269
+    Data2: 1125461826
+    Data3: -929726839
+    Data4: -1713423763
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2581
+--- !u!114 &6299997216197579182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shotgun fire
+  m_EditorClassIdentifier: 
+  Path: event:/Shotgun fire
+  Guid:
+    Data1: -1827667582
+    Data2: 1236923492
+    Data3: -1385637234
+    Data4: 863726412
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3898
+--- !u!114 &6936153490157592778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ammo collect
+  m_EditorClassIdentifier: 
+  Path: event:/Ammo collect
+  Guid:
+    Data1: -1034877969
+    Data2: 1161025334
+    Data3: 1247405990
+    Data4: 853561898
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &7543724561696802052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Revolver
+  m_EditorClassIdentifier: 
+  Path: event:/Revolver
+  Guid:
+    Data1: 1457526033
+    Data2: 1136070596
+    Data3: -920689508
+    Data4: -1661047161
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 595
+--- !u!114 &7561431200966120218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Heal
+  m_EditorClassIdentifier: 
+  Path: event:/Heal
+  Guid:
+    Data1: -2097159644
+    Data2: 1172634312
+    Data3: -1363957344
+    Data4: 78874740
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &8831474514015867221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Wolf howl
+  m_EditorClassIdentifier: 
+  Path: event:/Wolf howl
+  Guid:
+    Data1: 1662046936
+    Data2: 1249587478
+    Data3: 1689499791
+    Data4: -362495241
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000

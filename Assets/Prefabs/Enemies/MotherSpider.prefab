@@ -719,6 +719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5781411198989834293}
+  - component: {fileID: -5738681431550536582}
   m_Layer: 0
   m_Name: MotherSpider
   m_TagString: Enemy
@@ -742,6 +743,37 @@ Transform:
   - {fileID: 3166799892720352716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5738681431550536582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040033544691713133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -484986841
+      Data2: 1321203170
+      Data3: 1738188213
+      Data4: 92266901
+    Path: event:/Spider
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5686061120067795934
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,9 +863,13 @@ MonoBehaviour:
   relocateMaxDistance: 14
   relocateStopDistance: 1.2
   relocateTimeout: 4
+  minRelocateTime: 0.5
+  shootOrigin: {fileID: 5781624456640558845}
+  venomProjectilePrefab: {fileID: 0}
+  projectileSpeed: 18
   shootDuration: 3
   shootInterval: 0.6
-  shootOrigin: {fileID: 5781624456640558845}
+  aimTurnSpeed: 10
   eggPrefab: {fileID: 6549991221482394960, guid: 11555d7c46bbaa34e806b56a57b82510, type: 3}
   eggDropPoint: {fileID: 1760549088948603662}
   spawnEggsDuration: 4

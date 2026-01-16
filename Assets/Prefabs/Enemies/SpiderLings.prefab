@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8617558749643932143}
   - component: {fileID: 8796612585990392522}
   - component: {fileID: 1454062974487702657}
+  - component: {fileID: -8314018377225476981}
   m_Layer: 0
   m_Name: SpiderLings
   m_TagString: Enemy
@@ -89,6 +90,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &-8314018377225476981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606576831900176061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -484986841
+      Data2: 1321203170
+      Data3: 1738188213
+      Data4: 92266901
+    Path: event:/Spider
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &684019783528836496
 GameObject:
   m_ObjectHideFlags: 0

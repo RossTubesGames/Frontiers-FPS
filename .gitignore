@@ -20,6 +20,7 @@ MemoryCaptures/
 *.pidb
 *.booproj
 *.svd
+fmod_editor.log
 
 # OS / misc
 .DS_Store

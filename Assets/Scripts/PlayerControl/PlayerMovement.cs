@@ -1,10 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Transform yawSource; // Orientation (yaw) recommended
+    [SerializeField] private Transform yawSource;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 8.5f;
@@ -13,12 +14,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundRayLength = 1.1f;
 
+    [Header("Walls Anti-Stick")]
+    [SerializeField] private LayerMask wallMask;
+    [SerializeField] private float wallNormalMinY = 0.2f; // ignore mostly-floor normals
+    [SerializeField] private float extraWallSlideDown = 0.0f; // optional: 0..3 to force more slide
+
     [Header("Jump")]
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private float jumpCoolDown = 0.15f;
 
     [Header("Jump Count")]
-    [SerializeField] private int maxJumps = 2; // 2 = double jump
+    [SerializeField] private int maxJumps = 2;
 
     [Header("Dash")]
     [SerializeField] private KeyCode dashKey = KeyCode.Z;
@@ -28,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool requireGroundedToDash = false;
 
     private Rigidbody rb;
+    private CapsuleCollider col;
+
     private int jumpsRemaining;
     private float nextJumpTime;
     private bool jumpQueued;
@@ -38,11 +46,17 @@ public class PlayerMovement : MonoBehaviour
     private float nextDashTime;
     private Vector3 dashDir;
 
+    // Wall contact info (from collision)
+    private bool touchingWall;
+    private Vector3 wallNormal;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        col = GetComponent<CapsuleCollider>();
+
         rb.interpolation = RigidbodyInterpolation.Interpolate;
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
 
         if (yawSource == null) yawSource = transform;
 
@@ -62,7 +76,6 @@ public class PlayerMovement : MonoBehaviour
     {
         bool grounded = IsGrounded();
 
-        // Reset jumps when touching ground
         if (grounded)
             jumpsRemaining = maxJumps;
 
@@ -77,12 +90,46 @@ public class PlayerMovement : MonoBehaviour
             dashQueued = false;
 
             if (Time.time >= nextDashTime && (!requireGroundedToDash || grounded))
-            {
                 StartDash();
+        }
+
+        // Build desired horizontal velocity
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
+
+        Vector3 dir = (transform.right * x + transform.forward * z);
+        if (dir.sqrMagnitude > 1f) dir.Normalize();
+
+        Vector3 wishVel = new Vector3(dir.x * moveSpeed, 0f, dir.z * moveSpeed);
+
+        // If airborne and touching a wall, remove the "into wall" component
+        if (!grounded && touchingWall)
+        {
+            Vector3 n = wallNormal;
+            n.y = 0f; // treat as horizontal wall normal
+            float nMag = n.magnitude;
+
+            if (nMag > 0.0001f)
+            {
+                n /= nMag;
+
+                float intoWall = Vector3.Dot(wishVel, -n);
+                if (intoWall > 0f)
+                {
+                    // Cancel the part that pushes into the wall
+                    wishVel += n * intoWall;
+                }
+            }
+
+            // Optional: force more slide down if you want it
+            if (extraWallSlideDown > 0f)
+            {
+                Vector3 vNow = rb.velocity;
+                rb.velocity = new Vector3(vNow.x, vNow.y - extraWallSlideDown, vNow.z);
             }
         }
 
-        // If dashing, override horizontal movement
+        // If dashing, override horizontal movement (still apply anti-stick)
         if (isDashing)
         {
             if (Time.time >= dashEndTime)
@@ -91,32 +138,43 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Vector3 vDash = rb.linearVelocity;
-                rb.linearVelocity = new Vector3(dashDir.x * dashSpeed, vDash.y, dashDir.z * dashSpeed);
+                Vector3 dashVel = new Vector3(dashDir.x * dashSpeed, 0f, dashDir.z * dashSpeed);
+
+                if (!grounded && touchingWall)
+                {
+                    Vector3 n = wallNormal;
+                    n.y = 0f;
+                    float nMag = n.magnitude;
+
+                    if (nMag > 0.0001f)
+                    {
+                        n /= nMag;
+                        float intoWall = Vector3.Dot(dashVel, -n);
+                        if (intoWall > 0f) dashVel += n * intoWall;
+                    }
+                }
+
+                Vector3 vDash = rb.velocity;
+                rb.velocity = new Vector3(dashVel.x, vDash.y, dashVel.z);
+
                 HandleJumpWhileDashing();
                 return;
             }
         }
 
-        // Normal Move
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        // Apply movement
+        Vector3 v = rb.velocity;
+        rb.velocity = new Vector3(wishVel.x, v.y, wishVel.z);
 
-        Vector3 dir = (transform.right * x + transform.forward * z);
-        if (dir.sqrMagnitude > 1f) dir.Normalize();
-
-        Vector3 v = rb.linearVelocity;
-        rb.linearVelocity = new Vector3(dir.x * moveSpeed, v.y, dir.z * moveSpeed);
-
-        // Jump (first from ground, remaining can be in air)
+        // Jump
         if (jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
         {
             jumpQueued = false;
             jumpsRemaining--;
             nextJumpTime = Time.time + jumpCoolDown;
 
-            v = rb.linearVelocity;
-            rb.linearVelocity = new Vector3(v.x, 0f, v.z);
+            v = rb.velocity;
+            rb.velocity = new Vector3(v.x, 0f, v.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         else
@@ -127,7 +185,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartDash()
     {
-        // Look direction (yaw) forward, flattened
         Vector3 fwd = yawSource.forward;
         fwd.y = 0f;
 
@@ -140,22 +197,20 @@ public class PlayerMovement : MonoBehaviour
         dashEndTime = Time.time + dashDuration;
         nextDashTime = Time.time + dashCooldown;
 
-        // Optional: cancel current horizontal speed so dash is consistent
-        Vector3 v = rb.linearVelocity;
-        rb.linearVelocity = new Vector3(0f, v.y, 0f);
+        Vector3 v = rb.velocity;
+        rb.velocity = new Vector3(0f, v.y, 0f);
     }
 
     private void HandleJumpWhileDashing()
     {
-        // Optional behavior: keep jump working while dashing
         if (jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
         {
             jumpQueued = false;
             jumpsRemaining--;
             nextJumpTime = Time.time + jumpCoolDown;
 
-            Vector3 v = rb.linearVelocity;
-            rb.linearVelocity = new Vector3(v.x, 0f, v.z);
+            Vector3 v = rb.velocity;
+            rb.velocity = new Vector3(v.x, 0f, v.z);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
         else
@@ -167,5 +222,47 @@ public class PlayerMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, groundRayLength, groundMask, QueryTriggerInteraction.Ignore);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // Only treat collisions with walls
+        if (((1 << collision.gameObject.layer) & wallMask) == 0)
+            return;
+
+        // Pick the best "wall-like" normal (mostly horizontal)
+        Vector3 best = Vector3.zero;
+        float bestScore = -1f;
+
+        for (int i = 0; i < collision.contactCount; i++)
+        {
+            Vector3 n = collision.GetContact(i).normal;
+
+            // If normal points upward a lot, it behaves like floor/ledge, ignore as wall normal
+            if (n.y > wallNormalMinY)
+                continue;
+
+            float score = Vector3.Dot(n, -rb.velocity.normalized);
+            if (score > bestScore)
+            {
+                bestScore = score;
+                best = n;
+            }
+        }
+
+        if (best != Vector3.zero)
+        {
+            touchingWall = true;
+            wallNormal = best;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (((1 << collision.gameObject.layer) & wallMask) == 0)
+            return;
+
+        touchingWall = false;
+        wallNormal = Vector3.zero;
     }
 }

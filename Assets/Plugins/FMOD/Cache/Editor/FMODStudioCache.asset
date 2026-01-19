@@ -54,6 +54,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
+--- !u!114 &-5187501313392503477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Chest open
+  m_EditorClassIdentifier: 
+  Path: event:/Chest open
+  Guid:
+    Data1: -21313678
+    Data2: 1174752087
+    Data3: -149160272
+    Data4: -2113697988
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4936
 --- !u!114 &-4225777873904149300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +135,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 102060
+--- !u!114 &-2023951956796025374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Metal doors
+  m_EditorClassIdentifier: 
+  Path: event:/Metal doors
+  Guid:
+    Data1: 1609040100
+    Data2: 1289336340
+    Data3: -1231365734
+    Data4: -1956893838
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
 --- !u!114 &-1745267101330049045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,10 +204,10 @@ MonoBehaviour:
   Path: ../../../../Downloads/fmod project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639041712480855841
+  lastModified: 639041831511021463
   FileSizes:
   - Name: Desktop
-    Value: 1436
+    Value: 1608
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -186,13 +240,17 @@ MonoBehaviour:
   - {fileID: 8831474514015867221}
   - {fileID: 6936153490157592778}
   - {fileID: 6176371994261819980}
+  - {fileID: 5532094073059746771}
+  - {fileID: -2023951956796025374}
+  - {fileID: 2487334001122914560}
+  - {fileID: -5187501313392503477}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3101505783993474628}
   StringsBanks:
   - {fileID: -927951078304314119}
   cacheVersion: 131857
-  cacheTime: 639041712480855841
+  cacheTime: 639041831511021463
   SerializableEventsDict:
   - key: event:/Sword with wall swings
     index: 0
@@ -224,6 +282,14 @@ MonoBehaviour:
     index: 13
   - key: event:/Revolver reload
     index: 14
+  - key: event:/Big gate
+    index: 15
+  - key: event:/Metal doors
+    index: 16
+  - key: event:/Small door
+    index: 17
+  - key: event:/Chest open
+    index: 18
 --- !u!114 &40723859878719556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +317,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
+--- !u!114 &2487334001122914560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Small door
+  m_EditorClassIdentifier: 
+  Path: event:/Small door
+  Guid:
+    Data1: -245267216
+    Data2: 1330254062
+    Data3: 2097499566
+    Data4: -698272443
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1789
 --- !u!114 &2546176125036003566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,10 +386,10 @@ MonoBehaviour:
   Path: ../../../../Downloads/fmod project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639041712480825915
+  lastModified: 639041831510991529
   FileSizes:
   - Name: Desktop
-    Value: 1744192
+    Value: 1904768
   Exists: 1
 --- !u!114 &3281703551682564339
 MonoBehaviour:
@@ -325,6 +418,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 557
+--- !u!114 &5532094073059746771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Big gate
+  m_EditorClassIdentifier: 
+  Path: event:/Big gate
+  Guid:
+    Data1: 26376535
+    Data2: 1133994057
+    Data3: -958939730
+    Data4: -1026198306
+  Banks:
+  - {fileID: 3101505783993474628}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
 --- !u!114 &6119529337907778786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +579,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 595
+  Length: 588
 --- !u!114 &7561431200966120218
 MonoBehaviour:
   m_ObjectHideFlags: 0

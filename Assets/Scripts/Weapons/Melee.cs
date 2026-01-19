@@ -28,6 +28,9 @@ public class Melee : MonoBehaviour
 
     private void Punch()
     {
+        //Play the sword swinging sound
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Axe swings");
+
         //defines where the sphere is casted
         Vector3 origin = transform.position; //origin is punchers position so the player
         Vector3 forward = transform.forward.normalized; //forward direction the punchers is facing

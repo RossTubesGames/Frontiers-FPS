@@ -2231,6 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotgun: {fileID: 1107192796}
   text: {fileID: 938690384}
+  shotgunIcon: {fileID: 0}
 --- !u!1 &995348086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1008839392
 Transform:
   m_ObjectHideFlags: 0
@@ -3004,6 +3005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   revolver: {fileID: 769256682}
   text: {fileID: 1063475348}
+  revolverIcon: {fileID: 0}
 --- !u!1 &1066382060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,7 +3410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1156548747
 Transform:
   m_ObjectHideFlags: 0
@@ -4703,6 +4705,7 @@ MonoBehaviour:
   slamVFX: {fileID: 4621312165670060215, guid: ecad7ac5da5162e47998de9a79a0f652, type: 3}
   slamVFXLifetime: 3
   postSlamWait: 5
+  bossHealthBar: {fileID: 0}
 --- !u!195 &1390214739
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -2120,6 +2120,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   enemyTag: Enemy
+  hitImpactLifetime: 30
 --- !u!114 &782926179 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6929500956810005726, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
@@ -3770,6 +3771,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   enemyTag: Enemy
+  hitImpactLifetime: 30
 --- !u!1 &1120173551
 GameObject:
   m_ObjectHideFlags: 0
@@ -7720,6 +7722,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1486209126686042186, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+    - target: {fileID: 1486209126686042186, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2081973691388166984, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+    - target: {fileID: 2081973691388166984, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5959635481838479267, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7803,10 +7821,6 @@ PrefabInstance:
     - target: {fileID: 7281575793664860782, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
       propertyPath: m_Name
       value: GameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 7281575793664860782, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9139841405949509363, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7908,10 +7922,6 @@ PrefabInstance:
     - target: {fileID: 5932077719954275766, guid: c82014973e2022d45a1bb5fa0e344563, type: 3}
       propertyPath: m_Name
       value: Main Menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932077719954275766, guid: c82014973e2022d45a1bb5fa0e344563, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -24,6 +24,9 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
 
+    [Header("Impact Cleanup")]
+    [SerializeField] private float hitImpactLifetime = 30f;
+
     private int ammoInMag;
     private int reserveAmmo;
 
@@ -77,7 +80,6 @@ public class ShotGun : MonoBehaviour
             muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             muzzleFlash.Play(true);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun fire");
-
         }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
@@ -101,7 +103,10 @@ public class ShotGun : MonoBehaviour
                 if (hitImpactPrefab != null)
                 {
                     Quaternion rot = Quaternion.LookRotation(hit.normal);
-                    Instantiate(hitImpactPrefab, hit.point + hit.normal * 0.001f, rot);
+                    GameObject impact = Instantiate(hitImpactPrefab, hit.point + hit.normal * 0.001f, rot);
+
+                    if (hitImpactLifetime > 0f)
+                        Destroy(impact, hitImpactLifetime);
                 }
             }
         }
@@ -130,8 +135,7 @@ public class ShotGun : MonoBehaviour
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
-         FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun reload");
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun reload");
     }
 
     private void FinishReload()
@@ -147,11 +151,9 @@ public class ShotGun : MonoBehaviour
 
     public string GetAmmoText()
     {
-        // Doom-like: "2/8" (mag / reserve)
         return ammoInMag + "/" + reserveAmmo;
     }
 
-    // Optional UI helpers
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;
     public int GetMagazineSize() => magazineSize;

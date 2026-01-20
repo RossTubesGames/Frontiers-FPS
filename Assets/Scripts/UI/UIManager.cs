@@ -5,7 +5,7 @@ public class UIManager : MonoBehaviour
 {
 
 [SerializeField] private GameObject pauseMenuUI;
-public static bool IsPaused { get; private set; }
+
  private bool isPaused = false;
      void Start()
     {
@@ -28,6 +28,7 @@ public static bool IsPaused { get; private set; }
         isPaused = !isPaused;
         pauseMenuUI.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
+
     }
 
     public void ResumeGame()
@@ -46,7 +47,7 @@ public static bool IsPaused { get; private set; }
         SceneManager.LoadScene("MainMenu");
     }
     public void QuitGame()
-    {
+   {
         Application.Quit();
     }
 

@@ -36,7 +36,6 @@ public class WeaponWheel : MonoBehaviour
         if (weapons == null || weapons.Length == 0) return;
         if (index < 0 || index >= weapons.Length) return;
         if (index == currentIndex) return;
-
         // Toggle weapons
         for (int i = 0; i < weapons.Length; i++)
         {

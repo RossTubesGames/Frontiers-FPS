@@ -1,4 +1,5 @@
-using UnityEngine; 
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float health = 100f;
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0f)
         Debug.Log("Player died");
+        SceneManager.LoadScene("GameOver");
     
     }
 }

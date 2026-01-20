@@ -37,7 +37,6 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private ParticleSystem slamVFX;
     [SerializeField] private float slamVFXLifetime = 3f;
     [SerializeField] private float postSlamWait = 5f;
-    [SerializeField] private GameObject bossHealthBar;
 
     private NavMeshAgent agent;
     private float nextRepathTime;

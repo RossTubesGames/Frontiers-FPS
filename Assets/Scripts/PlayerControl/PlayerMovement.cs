@@ -193,13 +193,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartDash()
     {
-        Vector3 fwd = yawSource.forward;
-        fwd.y = 0f;
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
-        if (fwd.sqrMagnitude < 0.0001f)
-            fwd = transform.forward;
+        Vector3 dir = (transform.right * x + transform.forward * z);
+        dir.y = 0f;
 
-        dashDir = fwd.normalized;
+        // If no input, dash forward (based on yawSource)
+        if (dir.sqrMagnitude < 0.0001f)
+        {
+            Vector3 fwd = yawSource != null ? yawSource.forward : transform.forward;
+            fwd.y = 0f;
+
+            if (fwd.sqrMagnitude < 0.0001f)
+                fwd = transform.forward;
+
+            dir = fwd;
+        }
+
+        dashDir = dir.normalized;
 
         isDashing = true;
         dashEndTime = Time.time + dashDuration;
@@ -208,6 +220,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 v = rb.linearVelocity;
         rb.linearVelocity = new Vector3(0f, v.y, 0f);
     }
+
 
     private void HandleJumpWhileDashing()
     {

@@ -22,6 +22,9 @@ public class Revolver : MonoBehaviour
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
 
+    [Header("Impact Cleanup")]
+    [SerializeField] private float hitImpactLifetime = 30f;
+
     private int ammoInMag;
     private int reserveAmmo;
 
@@ -75,7 +78,6 @@ public class Revolver : MonoBehaviour
             muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             muzzleFlash.Play(true);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver");
-
         }
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
@@ -93,7 +95,10 @@ public class Revolver : MonoBehaviour
             if (hitImpactPrefab != null)
             {
                 Quaternion rot = Quaternion.LookRotation(hit.normal);
-                Instantiate(hitImpactPrefab, hit.point + hit.normal * 0.001f, rot);
+                GameObject impact = Instantiate(hitImpactPrefab, hit.point + hit.normal * 0.001f, rot);
+
+                if (hitImpactLifetime > 0f)
+                    Destroy(impact, hitImpactLifetime);
             }
         }
 
@@ -106,8 +111,8 @@ public class Revolver : MonoBehaviour
         if (reloading) return;
         if (ammoInMag >= magazineSize) return;
         if (reserveAmmo <= 0) return;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver reload");
 
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver reload");
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
@@ -126,9 +131,15 @@ public class Revolver : MonoBehaviour
 
     public string GetAmmoText()
     {
-        // Classic Doom-style: "6/36"
         return ammoInMag + "/" + reserveAmmo;
     }
+
+    public void AddReserveAmmo(int amount)
+    {
+        if (amount <= 0) return;
+        reserveAmmo += amount;
+    }
+
 
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;

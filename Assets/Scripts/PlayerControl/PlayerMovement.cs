@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -38,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider col;
+    //these are to calculate how fast the player is moving now which is needed for the footstep sound
+    private Vector3 lastPosition;
+    private float currentSpeed;
+    //cooldown for the footsteps
+    private float cooldown;
 
     private int jumpsRemaining;
     private float nextJumpTime;
@@ -55,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        lastPosition=transform.position;
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
@@ -70,11 +77,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        cooldown++;
+        if (cooldown >= 25)
+        {
+            cooldown=0;
+        }
+        //calculate current speed
+        currentSpeed=(transform.position-lastPosition).magnitude/Time.deltaTime;
+        lastPosition=transform.position;
         if (Input.GetKeyDown(KeyCode.Space))
             jumpQueued = true;
 
         if (Input.GetKeyDown(dashKey))
             dashQueued = true;
+        
+       PlayFootstep();
     }
 
     private void FixedUpdate()
@@ -193,13 +210,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartDash()
     {
-        Vector3 fwd = yawSource.forward;
-        fwd.y = 0f;
+        float x = Input.GetAxisRaw("Horizontal");
+        float z = Input.GetAxisRaw("Vertical");
 
-        if (fwd.sqrMagnitude < 0.0001f)
-            fwd = transform.forward;
+        Vector3 dir = (transform.right * x + transform.forward * z);
+        dir.y = 0f;
 
-        dashDir = fwd.normalized;
+        // If no input, dash forward (based on yawSource)
+        if (dir.sqrMagnitude < 0.0001f)
+        {
+            Vector3 fwd = yawSource != null ? yawSource.forward : transform.forward;
+            fwd.y = 0f;
+
+            if (fwd.sqrMagnitude < 0.0001f)
+                fwd = transform.forward;
+
+            dir = fwd;
+        }
+
+        dashDir = dir.normalized;
 
         isDashing = true;
         dashEndTime = Time.time + dashDuration;
@@ -208,6 +237,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 v = rb.linearVelocity;
         rb.linearVelocity = new Vector3(0f, v.y, 0f);
     }
+
 
     private void HandleJumpWhileDashing()
     {
@@ -274,5 +304,16 @@ public class PlayerMovement : MonoBehaviour
 
         touchingWall = false;
         wallNormal = Vector3.zero;
+    }
+  private void PlayFootstep()
+    {
+        if(currentSpeed>6 && cooldown<1 && IsGrounded())
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Walking");
+        }
+        else
+        {
+            return;
+        }
     }
 }

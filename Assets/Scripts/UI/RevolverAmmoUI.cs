@@ -5,6 +5,8 @@ public class RevolverAmmoUI : MonoBehaviour
 {
     [SerializeField] private Revolver revolver;
     [SerializeField] private TMP_Text text;
+    [SerializeField] private GameObject revolverIcon;
+    
 
     private void Awake()
     {
@@ -15,5 +17,13 @@ public class RevolverAmmoUI : MonoBehaviour
     {
         if (revolver == null || text == null) return;
         text.text = revolver.GetAmmoText();
+    }
+    private void OnEnable()
+    {
+        revolverIcon.SetActive(true);
+    }
+    private void OnDisable()
+    {
+        revolverIcon.SetActive(false);
     }
 }

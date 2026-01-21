@@ -15,8 +15,8 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private float fireCooldown = 0.8f;
 
     [Header("Ammo")]
-    [SerializeField] private int magazineSize = 2;         // shells in gun
-    [SerializeField] private int startingReserveAmmo = 8;  // extra shells carried
+    [SerializeField] private int magazineSize = 2;
+    [SerializeField] private int startingReserveAmmo = 8;
     [SerializeField] private float reloadTime = 1.2f;
     [SerializeField] private bool autoReloadWhenEmpty = false;
 
@@ -26,6 +26,13 @@ public class ShotGun : MonoBehaviour
 
     [Header("Impact Cleanup")]
     [SerializeField] private float hitImpactLifetime = 30f;
+
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
+    private static readonly int AnimShoot = Animator.StringToHash("ShotgunShoot");
+    private static readonly int AnimReload = Animator.StringToHash("ShotgunReload");
+    private static readonly int AnimEmpty = Animator.StringToHash("ShotgunEmpty");
 
     private int ammoInMag;
     private int reserveAmmo;
@@ -37,6 +44,9 @@ public class ShotGun : MonoBehaviour
     {
         ammoInMag = magazineSize;
         reserveAmmo = startingReserveAmmo;
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>(true);
     }
 
     private void OnEnable()
@@ -59,6 +69,8 @@ public class ShotGun : MonoBehaviour
         {
             if (ammoInMag <= 0)
             {
+                Trigger(AnimEmpty);
+
                 if (autoReloadWhenEmpty && reserveAmmo > 0)
                     StartReload();
 
@@ -74,6 +86,8 @@ public class ShotGun : MonoBehaviour
     {
         nextFireTime = Time.time + fireCooldown;
         ammoInMag--;
+
+        Trigger(AnimShoot);
 
         if (muzzleFlash != null)
         {
@@ -129,9 +143,10 @@ public class ShotGun : MonoBehaviour
     private void StartReload()
     {
         if (reloading) return;
-
         if (ammoInMag >= magazineSize) return;
         if (reserveAmmo <= 0) return;
+
+        Trigger(AnimReload);
 
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
@@ -149,6 +164,13 @@ public class ShotGun : MonoBehaviour
         reloading = false;
     }
 
+    private void Trigger(int hash)
+    {
+        if (animator == null) return;
+        animator.ResetTrigger(hash);
+        animator.SetTrigger(hash);
+    }
+
     public string GetAmmoText()
     {
         return ammoInMag + "/" + reserveAmmo;
@@ -159,7 +181,6 @@ public class ShotGun : MonoBehaviour
         if (amount <= 0) return;
         reserveAmmo += amount;
     }
-
 
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;

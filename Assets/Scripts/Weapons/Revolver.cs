@@ -25,6 +25,13 @@ public class Revolver : MonoBehaviour
     [Header("Impact Cleanup")]
     [SerializeField] private float hitImpactLifetime = 30f;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
+    private static readonly int AnimShoot = Animator.StringToHash("RevolverShoot");
+    private static readonly int AnimReload = Animator.StringToHash("RevolverReload");
+    private static readonly int AnimEmpty = Animator.StringToHash("RevolverEmpty");
+
     private int ammoInMag;
     private int reserveAmmo;
 
@@ -35,6 +42,9 @@ public class Revolver : MonoBehaviour
     {
         ammoInMag = magazineSize;
         reserveAmmo = startingReserveAmmo;
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>(true);
     }
 
     private void OnEnable()
@@ -57,6 +67,8 @@ public class Revolver : MonoBehaviour
         {
             if (ammoInMag <= 0)
             {
+                Trigger(AnimEmpty);
+
                 if (autoReloadWhenEmpty && reserveAmmo > 0)
                     StartReload();
 
@@ -72,6 +84,8 @@ public class Revolver : MonoBehaviour
     {
         nextFireTime = Time.time + fireCooldown;
         ammoInMag--;
+
+        Trigger(AnimShoot);
 
         if (muzzleFlash != null)
         {
@@ -114,6 +128,8 @@ public class Revolver : MonoBehaviour
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/Revolver reload");
 
+        Trigger(AnimReload);
+
         reloading = true;
         Invoke(nameof(FinishReload), reloadTime);
     }
@@ -129,6 +145,13 @@ public class Revolver : MonoBehaviour
         reloading = false;
     }
 
+    private void Trigger(int hash)
+    {
+        if (animator == null) return;
+        animator.ResetTrigger(hash);
+        animator.SetTrigger(hash);
+    }
+
     public string GetAmmoText()
     {
         return ammoInMag + "/" + reserveAmmo;
@@ -139,7 +162,6 @@ public class Revolver : MonoBehaviour
         if (amount <= 0) return;
         reserveAmmo += amount;
     }
-
 
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;

@@ -15,7 +15,7 @@ public class MotherSpider : MonoBehaviour
     [SerializeField] private float relocateMaxDistance = 14f;
     [SerializeField] private float relocateStopDistance = 1.2f;
     [SerializeField] private float relocateTimeout = 4f;
-    [SerializeField] private float minRelocateTime = 0.5f; // prevents instant state flipping
+    [SerializeField] private float minRelocateTime = 0.5f;
 
     [Header("Shooting (Venom Projectile)")]
     [SerializeField] private Transform shootOrigin;
@@ -31,6 +31,10 @@ public class MotherSpider : MonoBehaviour
     [SerializeField] private float spawnEggsDuration = 4f;
     [SerializeField] private float eggDropInterval = 1.2f;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private float walkSpeedThreshold = 0.05f; // when agent is "considered moving"
+
     [Header("Start State")]
     [SerializeField] private State startState = State.Shoot;
 
@@ -42,8 +46,14 @@ public class MotherSpider : MonoBehaviour
 
     private bool relocateDestinationSet;
     private float relocateGiveUpTime;
-    private float relocateCanFinishTime; // Time.time must be >= this before Relocate can end
+    private float relocateCanFinishTime;
     private Vector3 relocateDest;
+
+    // Parameter hashes (match your teammate's names)
+    private static readonly int AnimIdle = Animator.StringToHash("ArachnusIdle");
+    private static readonly int AnimWalk = Animator.StringToHash("ArachnusWalk");
+    private static readonly int AnimMelee = Animator.StringToHash("ArachnusMeleeAttack");
+    private static readonly int AnimRanged = Animator.StringToHash("ArachnusRangedAttack");
 
     private void Awake()
     {
@@ -61,6 +71,9 @@ public class MotherSpider : MonoBehaviour
 
         if (eggDropPoint == null)
             eggDropPoint = transform;
+
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>(); // common for rigged models
     }
 
     private void OnEnable()
@@ -96,32 +109,45 @@ public class MotherSpider : MonoBehaviour
         if (state == State.Shoot)
         {
             stateEndTime = Time.time + shootDuration;
-            nextShootTime = Time.time; // shoot immediately
-            ResumeAgent(); // you can also StopAgent() if you want her stationary while shooting
+            nextShootTime = Time.time;
+
+            // Usually: not walking while shooting (unless you want a strafing shooter)
+            SetWalking(false);
+            TriggerIdleOptional();
+
+            ResumeAgent();
         }
         else if (state == State.Relocate)
         {
             relocateDestinationSet = false;
             relocateGiveUpTime = Time.time + relocateTimeout;
             relocateCanFinishTime = Time.time + minRelocateTime;
+
             ResumeAgent();
+            // Walk bool will be driven in TickRelocate based on agent velocity
         }
         else if (state == State.SpawnEggs)
         {
             stateEndTime = Time.time + spawnEggsDuration;
-            nextEggDropTime = Time.time; // drop immediately
+            nextEggDropTime = Time.time;
+
             StopAgent();
+            SetWalking(false);
+            TriggerIdleOptional();
         }
     }
 
     private void TickShoot()
     {
-        // Turn toward player while shooting (helps projectiles feel intentional)
         AimAtPlayer();
 
         if (Time.time >= nextShootTime)
         {
             FireVenomProjectile();
+
+            // Fire the ranged attack animation per shot
+            TriggerRangedAttack();
+
             nextShootTime = Time.time + shootInterval;
         }
 
@@ -158,25 +184,24 @@ public class MotherSpider : MonoBehaviour
             relocateDestinationSet = true;
         }
 
-        // Timeout safety: if pathing is stuck, continue the cycle anyway
+        // Drive Walk animation from actual movement
+        float speed = agent.velocity.magnitude;
+        SetWalking(speed > walkSpeedThreshold);
+
         if (Time.time >= relocateGiveUpTime)
         {
             EnterState(State.SpawnEggs);
             return;
         }
 
-        // Wait until a path is computed
         if (agent.pathPending) return;
 
-        // If no valid path, do not instantly "arrive" - just give up into SpawnEggs after timeout
         if (agent.pathStatus != NavMeshPathStatus.PathComplete)
             return;
 
-        // Do not allow instant completion
         if (Time.time < relocateCanFinishTime)
             return;
 
-        // Arrived check
         if (agent.remainingDistance <= relocateStopDistance + 0.1f)
         {
             EnterState(State.SpawnEggs);
@@ -237,25 +262,19 @@ public class MotherSpider : MonoBehaviour
     {
         result = transform.position;
 
-        // This is how wide the spider is allowed to "search" for a new spot.
-        // Make it big enough to cover your map area.
         float searchRadius = relocateMaxDistance * 3f;
 
-        // Try a handful of random points; if none work, we fail and you can fallback.
         for (int i = 0; i < 25; i++)
         {
-            // Random point around the spider on the XZ plane
             Vector3 randomOffset = Random.insideUnitSphere * searchRadius;
             randomOffset.y = 0f;
 
             Vector3 candidate = transform.position + randomOffset;
 
-            // Snap candidate onto the NavMesh
             NavMeshHit hit;
             if (!NavMesh.SamplePosition(candidate, out hit, 5f, NavMesh.AllAreas))
                 continue;
 
-            // Must be at least 16 units away from the player (or your relocateMinDistance)
             float distToPlayer = Vector3.Distance(hit.position, player.position);
             if (distToPlayer < relocateMinDistance)
                 continue;
@@ -278,5 +297,46 @@ public class MotherSpider : MonoBehaviour
     {
         if (agent == null) return;
         agent.isStopped = false;
+    }
+
+    // ---------------- Animation helpers ----------------
+
+    private void SetWalking(bool isWalking)
+    {
+        if (animator == null) return;
+
+        // Assumes ArachnusWalk is a Bool
+        animator.SetBool(AnimWalk, isWalking);
+
+        // If you rely on an idle trigger, you can optionally trigger it on stop
+        if (!isWalking)
+            TriggerIdleOptional();
+    }
+
+    private void TriggerRangedAttack()
+    {
+        if (animator == null) return;
+
+        // Assumes ArachnusRangedAttack is a Trigger
+        animator.ResetTrigger(AnimRanged);
+        animator.SetTrigger(AnimRanged);
+    }
+
+    private void TriggerMeleeAttack()
+    {
+        if (animator == null) return;
+
+        animator.ResetTrigger(AnimMelee);
+        animator.SetTrigger(AnimMelee);
+    }
+
+    private void TriggerIdleOptional()
+    {
+        if (animator == null) return;
+
+        // Only useful if ArachnusIdle is actually a Trigger in the controller.
+        // If you don't need it, you can delete this method and calls to it.
+        animator.ResetTrigger(AnimIdle);
+        animator.SetTrigger(AnimIdle);
     }
 }

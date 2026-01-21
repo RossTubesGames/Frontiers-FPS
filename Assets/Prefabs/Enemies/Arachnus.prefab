@@ -2371,6 +2371,8 @@ MonoBehaviour:
   eggDropPoint: {fileID: 6328675260213814468}
   spawnEggsDuration: 4
   eggDropInterval: 1.2
+  animator: {fileID: 2098865410603674234}
+  walkSpeedThreshold: 0.05
   startState: 0
 --- !u!1 &5273609976950702603
 GameObject:

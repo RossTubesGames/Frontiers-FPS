@@ -134,6 +134,13 @@ public class Revolver : MonoBehaviour
         return ammoInMag + "/" + reserveAmmo;
     }
 
+    public void AddReserveAmmo(int amount)
+    {
+        if (amount <= 0) return;
+        reserveAmmo += amount;
+    }
+
+
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;
     public bool IsReloading() => reloading;

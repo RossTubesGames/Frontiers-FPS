@@ -146,6 +146,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   enemyTag: Enemy
+  hitImpactLifetime: 30
 --- !u!1 &2835234531667718330
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,9 +221,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3756405895981435957}
   - component: {fileID: 2372880283853028774}
-  - component: {fileID: 8282753210136769510}
   - component: {fileID: 8431436771963130713}
   - component: {fileID: 7752024374062863631}
+  - component: {fileID: 3893420231968979151}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -297,14 +298,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8282753210136769510
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4544479742390331110}
-  m_Enabled: 1
 --- !u!114 &8431436771963130713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +359,20 @@ MonoBehaviour:
   lookUpLimit: -85
   lookDownLimit: 70
   orientation: {fileID: 0}
+--- !u!114 &3893420231968979151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4544479742390331110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &4588019124768123924
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +577,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   enemyTag: Enemy
+  hitImpactLifetime: 30
 --- !u!1 &7145185464390588845
 GameObject:
   m_ObjectHideFlags: 0

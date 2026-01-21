@@ -223,7 +223,11 @@ GameObject:
   - component: {fileID: 2372880283853028774}
   - component: {fileID: 8431436771963130713}
   - component: {fileID: 7752024374062863631}
+<<<<<<< Updated upstream
   - component: {fileID: 3893420231968979151}
+=======
+  - component: {fileID: 2733846595310470263}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -359,7 +363,11 @@ MonoBehaviour:
   lookUpLimit: -85
   lookDownLimit: 70
   orientation: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!114 &3893420231968979151
+=======
+--- !u!114 &2733846595310470263
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

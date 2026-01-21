@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0f)
         {
             Debug.Log("Player died");
+            SceneManager.LoadScene("GameOver");
+
         }
     }
 }

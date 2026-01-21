@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -15,13 +16,21 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackCooldown = 1.0f;
 
-    private UnityEngine.AI.NavMeshAgent agent;
+    private NavMeshAgent agent;
+    private Animator animator;
+
     private float nextRepathTime;
     private float nextAttackTime;
 
+    // Animator hashes (performance + typo-safe)
+    private static readonly int DistanceHash = Animator.StringToHash("DistanceToTarget");
+    private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
+    private static readonly int AttackHash = Animator.StringToHash("Attack");
+
     private void Awake()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -41,6 +50,9 @@ public class EnemyAI : MonoBehaviour
 
         float dist = Vector3.Distance(transform.position, player.position);
 
+        // Update animator distance
+        animator.SetFloat(DistanceHash, dist);
+
         if (dist <= chaseRange)
         {
             if (Time.time >= nextRepathTime)
@@ -52,16 +64,20 @@ public class EnemyAI : MonoBehaviour
             if (dist <= attackRange)
             {
                 agent.isStopped = true;
+                animator.SetBool(IsMovingHash, false);
+
                 TryAttack();
             }
             else
             {
                 agent.isStopped = false;
+                animator.SetBool(IsMovingHash, true);
             }
         }
         else
         {
             agent.isStopped = true;
+            animator.SetBool(IsMovingHash, false);
         }
     }
 
@@ -70,7 +86,10 @@ public class EnemyAI : MonoBehaviour
         if (Time.time < nextAttackTime) return;
         nextAttackTime = Time.time + attackCooldown;
 
-        // If you have a PlayerHealth script, this will work immediately
+        // Trigger attack animation
+        animator.SetTrigger(AttackHash);
+
+        // Damage application
         PlayerHealth hp = player.GetComponentInParent<PlayerHealth>();
         if (hp != null)
         {
@@ -78,7 +97,6 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        // Fallback if you do not: add a TakeDamage(float) method on your player
         player.SendMessageUpwards("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 }

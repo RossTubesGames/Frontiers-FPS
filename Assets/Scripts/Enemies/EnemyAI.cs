@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Transform player;
 
     [Header("Chase")]
-    [SerializeField] private float chaseRange = 25f;
+    [SerializeField] private float chaseRange = 26f;
     [SerializeField] private float stopDistance = 1.6f;
     [SerializeField] private float repathInterval = 0.2f;
 
@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
     private float nextRepathTime;
     private float nextAttackTime;
 
-    // Animator hashes (performance + typo-safe)
+    // Animator hashes 
     private static readonly int DistanceHash = Animator.StringToHash("DistanceToTarget");
     private static readonly int IsMovingHash = Animator.StringToHash("IsMoving");
     private static readonly int AttackHash = Animator.StringToHash("Attack");

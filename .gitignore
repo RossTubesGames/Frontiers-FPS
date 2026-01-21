@@ -25,3 +25,4 @@ fmod_editor.log
 # OS / misc
 .DS_Store
 Thumbs.db
+Assets/Plugins/FMOD/Cache/ 

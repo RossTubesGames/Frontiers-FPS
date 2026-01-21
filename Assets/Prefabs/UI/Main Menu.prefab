@@ -282,7 +282,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Start
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 874f4494f8cee634d97280c549d9ddda, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -418,7 +418,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Settings
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 874f4494f8cee634d97280c549d9ddda, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -822,7 +822,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Demon Time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 874f4494f8cee634d97280c549d9ddda, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -959,7 +959,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dcde3cfcc1c1ac247b47f6579ad30f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 874f4494f8cee634d97280c549d9ddda, type: 2}
   m_sharedMaterial: {fileID: 0}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

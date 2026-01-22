@@ -489,11 +489,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008839392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &375743886 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2212565829183759777, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
-  m_PrefabInstance: {fileID: 633997747007407587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,11 +1442,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008839392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &763719861 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8668543334964301897, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
-  m_PrefabInstance: {fileID: 633997747007407587}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &819132252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6620,71 +6610,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
---- !u!1001 &642092786451175701
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1696932916177491486, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_Name
-      value: CamHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.75843674
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.8962674
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.1469439
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6708719279867054563, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362957020833530915, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: cameraPosition
-      value: 
-      objectReference: {fileID: 375743886}
-    - target: {fileID: 8514625731361111548, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
-      propertyPath: orientation
-      value: 
-      objectReference: {fileID: 763719861}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 592c9d4853f055342bd95e78affeaea9, type: 3}
 --- !u!1001 &2629622521185530100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6777,4 +6702,3 @@ SceneRoots:
   - {fileID: 1488839162}
   - {fileID: 1388498832}
   - {fileID: 2629622521185530100}
-  - {fileID: 642092786451175701}

@@ -1,15 +1,21 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public interface IDamageable
 {
+    void TakeDamage(float amount);
+}
 
+public class EnemyHealth : MonoBehaviour, IDamageable
+{
     [SerializeField] private float health = 30f;
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float amount)
     {
-        health -= damage;
+        health -= amount;
 
         if (health <= 0f)
+        {
             Destroy(gameObject);
+        }
     }
 }

@@ -6,9 +6,9 @@
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Enemy
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Ground, Water, UI, Walls
+    - Default, TransparentFX, Ignore Raycast, Ground, Water, UI, Walls, Arrow, Player
 - Active game object:
-  - Name: ShotgunAmmoPickup
+  - Name: PauseMenu
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

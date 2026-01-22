@@ -12,9 +12,12 @@ public class AmmoCrate : MonoBehaviour
 
     [Header("Lookup")]
     [SerializeField] private bool searchFromPlayerRoot = true;
+    
 
     private bool used;
     [SerializeField]private TMP_Text message;
+    [SerializeField]private Subtitlebox subtitlebox;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -64,14 +67,14 @@ public class AmmoCrate : MonoBehaviour
 
         if (revolver != null && revolverBullets > 0)
         {
-            message.text="Picked up ammo";
+            subtitlebox.ShowText("Picked up ammo", 3f);
             revolver.AddReserveAmmo(revolverBullets);
             gaveAny = true;
         }
 
         if (shotGun != null && shotgunShells > 0)
         {
-             message.text="Picked up  ammo";
+            subtitlebox.ShowText("Picked up ammo", 3f);
             shotGun.AddReserveAmmo(shotgunShells);
             gaveAny = true;
         }

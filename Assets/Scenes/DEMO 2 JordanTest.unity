@@ -44557,7 +44557,7 @@ GameObject:
   - component: {fileID: 1083126950}
   - component: {fileID: 1083126953}
   - component: {fileID: 1083126952}
-  - component: {fileID: 1083126951}
+  - component: {fileID: 1083126954}
   m_Layer: 5
   m_Name: AmmoTextCrossBow
   m_TagString: Untagged
@@ -44584,19 +44584,6 @@ RectTransform:
   m_AnchoredPosition: {x: -85, y: -18}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1083126951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083126949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12dca23e2fac7a941bcd5eb5bb4b98d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleIcon: {fileID: 1820175943}
 --- !u!114 &1083126952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44696,6 +44683,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083126949}
   m_CullTransparentMesh: 1
+--- !u!114 &1083126954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083126949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fba83aac72ff44f9a1657e61ab16eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crossBow: {fileID: 5160855179532927386}
+  text: {fileID: 1083126952}
+  crossbowIcon: {fileID: 1820175943}
 --- !u!1001 &1083776020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99551,6 +99553,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+--- !u!114 &5160855179532927386 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2676478794675000114, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+  m_PrefabInstance: {fileID: 5160855179532927385}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906705845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601c52a548481aa47bff4c7edbb0c771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &5479817719107202242
 MeshRenderer:
   m_ObjectHideFlags: 0

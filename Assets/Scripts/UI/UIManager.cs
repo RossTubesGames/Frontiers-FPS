@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
 
 [SerializeField] private GameObject pauseMenuUI;
 [SerializeField]private GameObject tutorialBox;
-[SerializeField]private GameObject firstSelectedButton;
+[SerializeField] private GameObject pauseFirstButton;
+[SerializeField] private GameObject tutorialFirstButton;
 
  private bool isPaused = false;
      void Start()
@@ -26,13 +29,19 @@ public class UIManager : MonoBehaviour
             TogglePause();
         }
     }
-    void TogglePause()
-    {
-        isPaused = !isPaused;
-        pauseMenuUI.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0f : 1f;
+void TogglePause()
+{
+    isPaused = !isPaused;
 
-    }
+    pauseMenuUI.SetActive(isPaused);
+    tutorialBox.SetActive(false);
+
+    Time.timeScale = isPaused ? 0f : 1f;
+
+    if (isPaused)
+        SelectButton(pauseFirstButton);
+}
+
 
     public void StartGame()
     {
@@ -48,20 +57,32 @@ public class UIManager : MonoBehaviour
    {
         Application.Quit();
    }
-   public void ShowTutorials()
-    {
-        tutorialBox.SetActive(true);
-        pauseMenuUI.SetActive(false);
-    }
-    public void ExitTutorial()
-    {
-        tutorialBox.SetActive(false);
-        pauseMenuUI.SetActive(true);
-    }
-    public void OnEnable()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
-    }
+public void ShowTutorials()
+{
+    tutorialBox.SetActive(true);
+    pauseMenuUI.SetActive(false);
+
+    Time.timeScale = 0f;
+    isPaused = true;
+
+    SelectButton(tutorialFirstButton);
+}
+public void ExitTutorial()
+{
+    tutorialBox.SetActive(false);
+    pauseMenuUI.SetActive(true);
+
+    Time.timeScale = 0f;
+    isPaused = true;
+
+    SelectButton(pauseFirstButton);
+}
+private void SelectButton(GameObject button)
+{
+    EventSystem.current.SetSelectedGameObject(null);
+    EventSystem.current.SetSelectedGameObject(button);
+}
+
+
 
 }

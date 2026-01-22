@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2507362187379180097
+--- !u!1 &6891023432226642256
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3227863522366506692}
-  - component: {fileID: 8622862836532182318}
-  - component: {fileID: 3438181254096491126}
-  - component: {fileID: 8886609466560734093}
-  - component: {fileID: 4459772202030193918}
+  - component: {fileID: 8785584958523538651}
+  - component: {fileID: 1519352111877079257}
+  - component: {fileID: 4146572733609484192}
+  - component: {fileID: 4406435318724257894}
+  - component: {fileID: 2236782840396405370}
+  - component: {fileID: 8846560109248910570}
   m_Layer: 0
   m_Name: ShotgunAmmo
   m_TagString: Untagged
@@ -20,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3227863522366506692
+--- !u!4 &8785584958523538651
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507362187379180097}
+  m_GameObject: {fileID: 6891023432226642256}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2162313, y: 0.022885863, z: -0.031357326}
-  m_LocalScale: {x: 0.004257751, y: 0.004257751, z: 0.004257751}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.10000038, y: 0, z: -0.29999924}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 3793019306761375942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8622862836532182318
+--- !u!33 &1519352111877079257
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507362187379180097}
+  m_GameObject: {fileID: 6891023432226642256}
   m_Mesh: {fileID: 2527837853563752213, guid: 6c3bb34b1bc623b4bbaa5293627fb900, type: 3}
---- !u!23 &3438181254096491126
+--- !u!23 &4146572733609484192
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507362187379180097}
+  m_GameObject: {fileID: 6891023432226642256}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,13 +89,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8886609466560734093
+--- !u!114 &4406435318724257894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507362187379180097}
+  m_GameObject: {fileID: 6891023432226642256}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -119,13 +120,13 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!135 &4459772202030193918
+--- !u!135 &2236782840396405370
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2507362187379180097}
+  m_GameObject: {fileID: 6891023432226642256}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -140,3 +141,52 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 18.148254
   m_Center: {x: -0.000015258789, y: 0, z: 0}
+--- !u!114 &8846560109248910570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6891023432226642256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a1b54a434e69244a06f16df4f5e223, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  revolverBullets: 10
+  shotgunShells: 4
+  playerTag: Player
+  destroyOnPickup: 1
+  searchFromPlayerRoot: 1
+--- !u!1 &7535347208816811739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3793019306761375942}
+  m_Layer: 0
+  m_Name: ShotgunAmmoPickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3793019306761375942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7535347208816811739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.38, y: 4.65, z: -3.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8785584958523538651}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

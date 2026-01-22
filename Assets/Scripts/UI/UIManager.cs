@@ -31,20 +31,15 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void ResumeGame()
-    {
-        isPaused = false;
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene("DemoBuild");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Button click");
     }
     public void QuitToMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Button click");
     }
     public void QuitGame()
    {

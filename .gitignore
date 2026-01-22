@@ -26,3 +26,7 @@ fmod_editor.log
 .DS_Store
 Thumbs.db
 Assets/Plugins/FMOD/Cache/ 
+# Ignore TMP SDF assets
+Assets/TextMesh Pro/Resources/Fonts & Materials/* SDF.asset
+Assets/TodorAssets/* SDF.asset
+

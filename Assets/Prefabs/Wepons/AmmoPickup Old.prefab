@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 5257322669572689728}
   - component: {fileID: 8122933055460748275}
   - component: {fileID: 5697045718945888587}
+  - component: {fileID: 8754989206429409371}
   m_Layer: 0
   m_Name: AmmoBoxTempary
   m_TagString: Untagged
@@ -158,3 +159,34 @@ MonoBehaviour:
   playerTag: Player
   destroyOnPickup: 1
   searchFromPlayerRoot: 1
+--- !u!114 &8754989206429409371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649975442335269050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  EventReference:
+    Guid:
+      Data1: -1034877969
+      Data2: 1161025334
+      Data3: 1247405990
+      Data4: 853561898
+    Path: event:/Ammo collect
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

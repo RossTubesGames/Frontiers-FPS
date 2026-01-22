@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7725802302813080336}
   - component: {fileID: 6053358698630352711}
   - component: {fileID: 3123638948390055540}
-  - component: {fileID: -1025967847197188238}
+  - component: {fileID: 5904572125084470797}
   m_Layer: 0
   m_Name: hp1
   m_TagString: Untagged
@@ -120,7 +120,7 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!135 &-1025967847197188238
+--- !u!135 &5904572125084470797
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

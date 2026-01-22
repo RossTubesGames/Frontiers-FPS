@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6053358698630352711}
   - component: {fileID: 3123638948390055540}
   - component: {fileID: 5904572125084470797}
+  - component: {fileID: -2057227079350921295}
   m_Layer: 0
   m_Name: hp1
   m_TagString: Untagged
@@ -141,6 +142,24 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 13.838526
   m_Center: {x: -0.000014305113, y: 6.7213125, z: -0.0000016689298}
+--- !u!114 &-2057227079350921295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095189955715107719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c696ce60993221542b63431de9417a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  healthBarUI: {fileID: 0}
+  healAmmount: 20
+  display: {fileID: 0}
+  displayTime: 0
+  textHolder: {fileID: 0}
 --- !u!1 &4641975517039292864
 GameObject:
   m_ObjectHideFlags: 0

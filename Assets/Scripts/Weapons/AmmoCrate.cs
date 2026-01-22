@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class AmmoCrate : MonoBehaviour
 {
     [Header("Pickup Amounts")]
@@ -14,6 +14,7 @@ public class AmmoCrate : MonoBehaviour
     [SerializeField] private bool searchFromPlayerRoot = true;
 
     private bool used;
+    [SerializeField]private TMP_Text message;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -63,12 +64,14 @@ public class AmmoCrate : MonoBehaviour
 
         if (revolver != null && revolverBullets > 0)
         {
+            message.text="Picked up ammo";
             revolver.AddReserveAmmo(revolverBullets);
             gaveAny = true;
         }
 
         if (shotGun != null && shotgunShells > 0)
         {
+             message.text="Picked up  ammo";
             shotGun.AddReserveAmmo(shotgunShells);
             gaveAny = true;
         }

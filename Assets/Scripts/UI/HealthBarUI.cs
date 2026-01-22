@@ -19,6 +19,7 @@ public class HealthBarUI : MonoBehaviour
 
     public void UpdateHealthBar()
     {
+        Debug.Log("update");
       fillImage.fillAmount = playerHealth.health / maxHealth;
       percentageText.text = Mathf.RoundToInt((playerHealth.health / maxHealth) * 100f) + "%";
     }

@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
 
 [SerializeField] private GameObject pauseMenuUI;
+[SerializeField]private GameObject tutorialBox;
+[SerializeField]private GameObject firstSelectedButton;
 
  private bool isPaused = false;
      void Start()
@@ -44,6 +47,21 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
    {
         Application.Quit();
+   }
+   public void ShowTutorials()
+    {
+        tutorialBox.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+    public void ExitTutorial()
+    {
+        tutorialBox.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+    public void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(firstSelectedButton);
     }
 
 }

@@ -10,49 +10,31 @@ public class Melee : MonoBehaviour
     [Header("Punch Shape")]
     [SerializeField] private float range = 1.2f;
     [SerializeField] private float radius = 0.5f;
-    [SerializeField] private float maxAngle = 55f;
+    [SerializeField] private float maxAngle = 55f; // 3D cone in front
 
     [Header("Timing")]
     [SerializeField] private float cooldown = 0.25f;
 
-    [Header("Animation")]
-    [SerializeField] private Animator animator;
-
-    private static readonly int AnimMelee = Animator.StringToHash("MeleeAttack");
-
     private float nextTime;
-
-    private void Awake()
-    {
-        if (animator == null)
-            animator = GetComponentInChildren<Animator>(true);
-    }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTime)
         {
             nextTime = Time.time + cooldown;
-
-            TriggerMelee();
             Punch();
         }
     }
 
-    private void TriggerMelee()
-    {
-        if (animator == null) return;
-        animator.ResetTrigger(AnimMelee);
-        animator.SetTrigger(AnimMelee);
-    }
-
     private void Punch()
     {
+        //Play the sword swinging sound
         FMODUnity.RuntimeManager.PlayOneShot("event:/Axe swings");
 
-        Vector3 origin = transform.position;
-        Vector3 forward = transform.forward.normalized;
-        Vector3 center = origin + forward * range;
+        //defines where the sphere is casted
+        Vector3 origin = transform.position; //origin is punchers position so the player
+        Vector3 forward = transform.forward.normalized; //forward direction the punchers is facing
+        Vector3 center = origin + forward * range; //center is the point infront of the player at distance range
 
         Collider[] hits = Physics.OverlapSphere(center, radius, hitMask, QueryTriggerInteraction.Ignore);
 

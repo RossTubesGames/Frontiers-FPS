@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+
 public class GrapplerGun : MonoBehaviour
 {
     private enum GrappleMode
@@ -35,15 +35,11 @@ public class GrapplerGun : MonoBehaviour
     [SerializeField] private float lineRetractSpeed = 30f;
 
     private GrappleMode mode = GrappleMode.None;
-    //Slider instead of ammo
-    [SerializeField] private Slider cooldownSlider;
-
 
     private Vector3 grapplePoint;
     private Rigidbody enemyRb;
     private Transform enemyTransform;
 
-    // This is what PlayerMovement will read
     public bool IsGrappling
     {
         get { return mode != GrappleMode.None; }
@@ -88,7 +84,7 @@ public class GrapplerGun : MonoBehaviour
     private void TryStartGrapple()
     {
         if (!cam || !playerRb) return;
-        cooldownSlider.value = 0;
+
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
 
         RaycastHit hit;
@@ -221,7 +217,6 @@ public class GrapplerGun : MonoBehaviour
 
     public void StopGrapple()
     {
-        cooldownSlider.value=1;
         mode = GrappleMode.None;
         enemyRb = null;
         enemyTransform = null;

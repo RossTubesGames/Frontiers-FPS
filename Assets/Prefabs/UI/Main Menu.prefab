@@ -136,6 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   normalColor: {r: 1, g: 0.03529412, b: 0.03529412, a: 1}
+  textTransform: {fileID: 7619013804230658382}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &1309703358744128889
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +638,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0.9764151, g: 0.9209588, b: 0.015686275, a: 1}
   normalColor: {r: 0.9764706, g: 0.03529412, b: 0.03529412, a: 1}
+  textTransform: {fileID: 7009363929114745193}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &4548248026984360758
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +825,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
+  tutorialBox: {fileID: 0}
+  pauseFirstButton: {fileID: 0}
+  tutorialFirstButton: {fileID: 0}
 --- !u!1 &6182420449675027986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,3 +1248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   normalColor: {r: 1, g: 0.03529412, b: 0.03529412, a: 1}
+  textTransform: {fileID: 1325490122262816343}
+  scaleAmount: 1.1
+  bounceDuration: 1

@@ -148,6 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0.4198113, g: 0.41949573, b: 0.41585082, a: 1}
   normalColor: {r: 0.91764706, g: 0.8784314, b: 0.8784314, a: 1}
+  textTransform: {fileID: 4883261012887106462}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &1075635237745005819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,14 +2295,13 @@ GameObject:
   - component: {fileID: 9088866757244721405}
   - component: {fileID: 7155005648168675795}
   - component: {fileID: 499208750830666214}
-  - component: {fileID: 30528792019260838}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9088866757244721405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2361,21 +2363,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &30528792019260838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5003871994145688218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b554bf60a1a9649ab45ae1f8b39aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
-  tutorialBox: {fileID: 0}
-  firstSelectedButton: {fileID: 468730298350864215}
 --- !u!1 &5057652940870539229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,6 +2722,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0.41960785, g: 0.41960785, b: 0.41568628, a: 1}
   normalColor: {r: 0.91764706, g: 0.8784314, b: 0.8784314, a: 1}
+  textTransform: {fileID: 3153572100347942251}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &5280572426881578244
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,6 +3193,7 @@ GameObject:
   - component: {fileID: 1355801782572656820}
   - component: {fileID: 8371375998315986171}
   - component: {fileID: 6929500956810005726}
+  - component: {fileID: 8168133914725973320}
   m_Layer: 5
   m_Name: UIGame
   m_TagString: Untagged
@@ -3318,7 +3309,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 5003871994145688218}
   tutorialBox: {fileID: 7382735206034183522}
-  firstSelectedButton: {fileID: 0}
+  pauseFirstButton: {fileID: 468730298350864215}
+  tutorialFirstButton: {fileID: 6524323462955897855}
+--- !u!114 &8168133914725973320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918055037207326567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d7c26e06bc6a9745b814edcec8eacd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healText: {fileID: 4251426347656864188}
+  textHolder: {fileID: 8023069219785791280}
 --- !u!1 &5934031809277315824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3775,6 +3781,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0.41960785, g: 0.41960785, b: 0.41568628, a: 1}
   normalColor: {r: 0.91764706, g: 0.8784314, b: 0.8784314, a: 1}
+  textTransform: {fileID: 0}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &6589281060800102610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,8 +4207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crossBow: {fileID: 0}
-  text: {fileID: 0}
-  crossbowIcon: {fileID: 0}
+  text: {fileID: 6672661216324490895}
+  crossbowIcon: {fileID: 7494391958417932204}
 --- !u!1 &7231242300807512942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,7 +4431,6 @@ GameObject:
   - component: {fileID: 5546385761225969418}
   - component: {fileID: 9145631018026405710}
   - component: {fileID: 427892237131162323}
-  - component: {fileID: 1860388277107852710}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -4493,21 +4501,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1860388277107852710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7382735206034183522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b554bf60a1a9649ab45ae1f8b39aa4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
-  tutorialBox: {fileID: 0}
-  firstSelectedButton: {fileID: 6524323462955897855}
 --- !u!1 &7409153384025219213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,7 +4563,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720139922171893386}
-  - component: {fileID: 663923099959925446}
   m_Layer: 5
   m_Name: Slot 4
   m_TagString: Untagged
@@ -4598,19 +4590,6 @@ RectTransform:
   m_AnchoredPosition: {x: -146, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &663923099959925446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7494391958417932204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12dca23e2fac7a941bcd5eb5bb4b98d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grappleIcon: {fileID: 7494391958417932204}
 --- !u!1 &8023069219785791280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4623,7 +4602,7 @@ GameObject:
   - component: {fileID: 2104233441248867307}
   - component: {fileID: 4251426347656864188}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4678,8 +4657,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 05e382d85fccde849bc82e01ed3fdb78, type: 2}
+  m_sharedMaterial: {fileID: 5248692697712540869, guid: 05e382d85fccde849bc82e01ed3fdb78, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4884,7 +4863,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: f6d0ea9babdd446448794bc72d7ff46d, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -5451,6 +5430,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0.41960785, g: 0.41960785, b: 0.41568628, a: 1}
   normalColor: {r: 0.91764706, g: 0.8784314, b: 0.8784314, a: 1}
+  textTransform: {fileID: 2204084486903522838}
+  scaleAmount: 1.1
+  bounceDuration: 1
 --- !u!1 &8687180773878800720
 GameObject:
   m_ObjectHideFlags: 0

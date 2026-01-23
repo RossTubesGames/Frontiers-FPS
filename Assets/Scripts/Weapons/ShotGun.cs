@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class ShotGun : MonoBehaviour
 {
     [Header("References")]
@@ -26,6 +26,8 @@ public class ShotGun : MonoBehaviour
 
     [Header("Impact Cleanup")]
     [SerializeField] private float hitImpactLifetime = 30f;
+    [SerializeField]private TMP_Text message;
+    [SerializeField]private Subtitlebox subtitlebox;
 
     private int ammoInMag;
     private int reserveAmmo;
@@ -59,6 +61,7 @@ public class ShotGun : MonoBehaviour
         {
             if (ammoInMag <= 0)
             {
+               subtitlebox.ShowText("Out of ammo",3f);   
                 if (autoReloadWhenEmpty && reserveAmmo > 0)
                     StartReload();
 
@@ -112,7 +115,9 @@ public class ShotGun : MonoBehaviour
         }
 
         if (ammoInMag <= 0 && autoReloadWhenEmpty && reserveAmmo > 0)
+        {
             StartReload();
+        }
     }
 
     private Vector3 GetSpreadDirection(Vector3 forward, float angleDeg)

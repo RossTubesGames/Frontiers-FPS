@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class CrossBow : MonoBehaviour
 {
@@ -29,7 +30,8 @@ public class CrossBow : MonoBehaviour
     [Header("Hit Filtering")]
     [SerializeField] private LayerMask hitMask = ~0;
     [SerializeField] private string enemyTag = "Enemy";
-
+    [SerializeField]private TMP_Text message;
+    [SerializeField]private Subtitlebox subtitlebox;
     private int ammoInMag;
     private int reserveAmmo;
 
@@ -67,6 +69,7 @@ public class CrossBow : MonoBehaviour
 
         if (ammoInMag <= 0)
         {
+            subtitlebox.ShowText("Out of ammo",3f);
             if (autoReloadWhenEmpty) TryStartReload();
             return;
         }

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class Revolver : MonoBehaviour
 {
     [Header("References")]
@@ -24,6 +24,8 @@ public class Revolver : MonoBehaviour
 
     [Header("Impact Cleanup")]
     [SerializeField] private float hitImpactLifetime = 30f;
+    [SerializeField]private TMP_Text message;
+    [SerializeField]private Subtitlebox subtitlebox;
 
     private int ammoInMag;
     private int reserveAmmo;
@@ -57,6 +59,7 @@ public class Revolver : MonoBehaviour
         {
             if (ammoInMag <= 0)
             {
+                subtitlebox.ShowText("Out of ammo",3f);
                 if (autoReloadWhenEmpty && reserveAmmo > 0)
                     StartReload();
 

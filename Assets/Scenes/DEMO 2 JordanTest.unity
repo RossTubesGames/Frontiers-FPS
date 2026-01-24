@@ -833,6 +833,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: jumpHeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: timeToApex
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: dashCooldown
       value: 0.5
       objectReference: {fileID: 0}
@@ -843,6 +851,14 @@ PrefabInstance:
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: groundRayLength
       value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: wallMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: extraFallGravity
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: requireGroundedToDash

@@ -8,6 +8,17 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform yawSource;
 
+    [Header("Gravity Feel")]
+    [SerializeField] private float extraFallGravity = 15f; // extra downward accel ONLY while falling (keeps falls snappy personally between 10 and 20 is a smooth gravity feel)
+
+    [Header("Jump Feel")]
+    [SerializeField] private float jumpHeight = 1.6f;   // meters: how high the jump should reach
+    [SerializeField] private float timeToApex = 0.35f;  // seconds: how fast you reach the top (lower = faster upward snap) so if its 2.5 then it takes 2 and a half seconds to jump all the way up so basically in slowmotion
+
+    // Computed from jumpHeight + timeToApex (so you can control "height" and "up speed" separately)
+    private float customGravityY;     // negative value (e.g. -26)
+    private float jumpVelocityY;      // initial upward velocity (e.g. 9)
+
     [Header("Optional Grapple")]
     [SerializeField] private GrapplerGun grappler;
 
@@ -23,11 +34,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wallNormalMinY = 0.2f; // ignore mostly-floor normals
     [SerializeField] private float extraWallSlideDown = 0.0f; // optional: 0..3 to force more slide
 
-    [Header("Jump")]
-    [SerializeField] private float jumpForce = 7f;
+    [Header("Jump Cooldown / Count")]
     [SerializeField] private float jumpCoolDown = 0.15f;
-
-    [Header("Jump Count")]
     [SerializeField] private int maxJumps = 2;
 
     [Header("Dash")]
@@ -39,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider col;
-    //these are to calculate how fast the player is moving now which is needed for the footstep sound
+
+    // Footstep speed tracking
     private Vector3 lastPosition;
     private float currentSpeed;
-    //cooldown for the footsteps
     private float cooldown;
 
     private int jumpsRemaining;
@@ -61,37 +69,54 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        lastPosition=transform.position;
+        lastPosition = transform.position;
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
 
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-        if (yawSource == null) yawSource = transform;
+        // IMPORTANT: we use custom gravity for jump feel, so disable Unity gravity on this Rigidbody.
+        // (If you leave Use Gravity on, you'd apply gravity twice.)
+        rb.useGravity = false;
 
+        if (yawSource == null) yawSource = transform;
         if (!grappler) grappler = GetComponentInChildren<GrapplerGun>();
 
         jumpsRemaining = maxJumps;
+
+        // Compute jump parameters from designer-friendly values.
+        // Physics:
+        //   jumpVelocity = 2H / T
+        //   gravity      = -2H / T^2
+        // Where H is jumpHeight and T is timeToApex.
+        timeToApex = Mathf.Max(0.05f, timeToApex); // safety clamp (avoid divide by zero)
+        jumpHeight = Mathf.Max(0.01f, jumpHeight);
+
+        customGravityY = -2f * jumpHeight / (timeToApex * timeToApex);
+        jumpVelocityY = 2f * jumpHeight / timeToApex;
     }
 
     private void Update()
     {
+        // simple cooldown counter for footsteps
         cooldown++;
         if (cooldown >= 25)
         {
-            cooldown=0;
+            cooldown = 0;
         }
-        //calculate current speed
-        currentSpeed=(transform.position-lastPosition).magnitude/Time.deltaTime;
-        lastPosition=transform.position;
+
+        // calculate current speed
+        currentSpeed = (transform.position - lastPosition).magnitude / Time.deltaTime;
+        lastPosition = transform.position;
+
         if (Input.GetKeyDown(KeyCode.Space))
             jumpQueued = true;
 
         if (Input.GetKeyDown(dashKey))
             dashQueued = true;
-        
-       PlayFootstep();
+
+        PlayFootstep();
     }
 
     private void FixedUpdate()
@@ -107,6 +132,20 @@ public class PlayerMovement : MonoBehaviour
         Vector3 e = transform.eulerAngles;
         e.y = yawSource.eulerAngles.y;
         transform.eulerAngles = e;
+
+        // ------------------------------------------------------------
+        // Custom gravity (New)
+        // ------------------------------------------------------------
+        // We apply our own gravity every physics step.
+        // This makes jump "up speed" controllable via timeToApex.
+        rb.AddForce(new Vector3(0f, customGravityY, 0f), ForceMode.Acceleration);
+
+        // Extra fall gravity: only when moving downward.
+        // Keeps falling snappy without making the rise feel overly heavy.
+        if (!grounded && rb.linearVelocity.y < 0f)
+        {
+            rb.AddForce(Vector3.down * extraFallGravity, ForceMode.Acceleration);
+        }
 
         // Start dash (if queued) - optional: block dash while grappling
         if (dashQueued)
@@ -191,7 +230,13 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector3(wishVel.x, v.y, wishVel.z);
         }
 
-        // Jump
+        // ------------------------------------------------------------
+        // Jump (Updated)
+        // ------------------------------------------------------------
+        // Instead of adding an arbitrary force, we set the upward velocity
+        // to a computed value so we control:
+        // - jumpHeight (meters)
+        // - timeToApex (seconds) = how fast you rise
         if (jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
         {
             jumpQueued = false;
@@ -199,8 +244,10 @@ public class PlayerMovement : MonoBehaviour
             nextJumpTime = Time.time + jumpCoolDown;
 
             Vector3 v = rb.linearVelocity;
-            rb.linearVelocity = new Vector3(v.x, 0f, v.z);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+
+            // Preserve horizontal velocity; set vertical velocity directly to our computed jump speed.
+            // This makes the jump feel consistent and "snappy" when timeToApex is low.
+            rb.linearVelocity = new Vector3(v.x, jumpVelocityY, v.z);
         }
         else
         {
@@ -238,9 +285,9 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = new Vector3(0f, v.y, 0f);
     }
 
-
     private void HandleJumpWhileDashing()
     {
+        // Same jump logic as normal: set vertical velocity to computed value
         if (jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
         {
             jumpQueued = false;
@@ -248,8 +295,7 @@ public class PlayerMovement : MonoBehaviour
             nextJumpTime = Time.time + jumpCoolDown;
 
             Vector3 v = rb.linearVelocity;
-            rb.linearVelocity = new Vector3(v.x, 0f, v.z);
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            rb.linearVelocity = new Vector3(v.x, jumpVelocityY, v.z);
         }
         else
         {
@@ -305,9 +351,10 @@ public class PlayerMovement : MonoBehaviour
         touchingWall = false;
         wallNormal = Vector3.zero;
     }
-  private void PlayFootstep()
+
+    private void PlayFootstep()
     {
-        if(currentSpeed>6 && cooldown<1 && IsGrounded())
+        if (currentSpeed > 6 && cooldown < 1 && IsGrounded())
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Walking");
         }

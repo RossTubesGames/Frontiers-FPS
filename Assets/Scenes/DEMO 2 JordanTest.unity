@@ -2032,10 +2032,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arachnus
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6209151397539089248, guid: 08a74176f3bbd87479c05279814e9dc8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5271019113299087484, guid: 08a74176f3bbd87479c05279814e9dc8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 779719168}
   m_SourcePrefab: {fileID: 100100000, guid: 08a74176f3bbd87479c05279814e9dc8, type: 3}
 --- !u!4 &211283493 stripped
 Transform:
@@ -31473,6 +31477,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4203524346853407843, guid: 2a8d5f8dce9337149b10781922b74458, type: 3}
   m_PrefabInstance: {fileID: 779641541}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &779719163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5271019113299087484, guid: 08a74176f3bbd87479c05279814e9dc8, type: 3}
+  m_PrefabInstance: {fileID: 211283492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &779719168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779719163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b7ace9d39e8d24eabc5fc6b2cc7df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key2: {fileID: 0}
+  health: 30
 --- !u!43 &780830142
 Mesh:
   m_ObjectHideFlags: 0

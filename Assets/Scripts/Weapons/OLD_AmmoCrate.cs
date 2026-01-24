@@ -1,6 +1,6 @@
 using UnityEngine;
-
-public class AmmoCrate : MonoBehaviour
+using TMPro;
+public class OLD_AmmoCrate : MonoBehaviour
 {
     [Header("Pickup Amounts")]
     [SerializeField] private int revolverBullets = 10;
@@ -12,8 +12,12 @@ public class AmmoCrate : MonoBehaviour
 
     [Header("Lookup")]
     [SerializeField] private bool searchFromPlayerRoot = true;
+    
 
     private bool used;
+    [SerializeField]private TMP_Text message;
+    [SerializeField]private Subtitlebox subtitlebox;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -63,12 +67,14 @@ public class AmmoCrate : MonoBehaviour
 
         if (revolver != null && revolverBullets > 0)
         {
+            subtitlebox.ShowText("Picked up ammo", 3f);
             revolver.AddReserveAmmo(revolverBullets);
             gaveAny = true;
         }
 
         if (shotGun != null && shotgunShells > 0)
         {
+            subtitlebox.ShowText("Picked up ammo", 3f);
             shotGun.AddReserveAmmo(shotgunShells);
             gaveAny = true;
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShotGun : MonoBehaviour
+public class OLD_ShotGun : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform shootOrigin;

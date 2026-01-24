@@ -20,7 +20,7 @@ public class EnemyColliderDamage : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.transform.name);
+        // Debug.Log(other.transform.name);
         if (other.gameObject.CompareTag(playerTag))
         {
             Transform player = other.transform;

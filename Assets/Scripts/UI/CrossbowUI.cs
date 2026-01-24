@@ -18,7 +18,5 @@ public class CrossbowUI : MonoBehaviour
         if (crossBow == null || text == null) return;
 
         text.text = crossBow.GetAmmoText();
-        crossbowIcon.SetActive(true);
-
     }
 }

@@ -40,6 +40,7 @@ public class GrapplerGun : MonoBehaviour
     private Rigidbody enemyRb;
     private Transform enemyTransform;
 
+    // This is what PlayerMovement will read
     public bool IsGrappling
     {
         get { return mode != GrappleMode.None; }

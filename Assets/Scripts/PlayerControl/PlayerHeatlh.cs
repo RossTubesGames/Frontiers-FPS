@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float health = 100f;
+    [SerializeField] private float health = 100f;
     [SerializeField] private HealthBarUI healthBarUI;
 
     public float Health => health;
@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.Log("Player died");
             SceneManager.LoadScene("GameOver");
+
         }
     }
 }

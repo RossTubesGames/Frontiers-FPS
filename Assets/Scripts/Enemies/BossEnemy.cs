@@ -24,13 +24,10 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private float attackExitBuffer = 0.4f;
 
     [Header("Charge")]
-<<<<<<< HEAD
+
     [SerializeField] private float chargeTriggerDistanceMax = 12f;
     [SerializeField] private float chargeTriggerDistanceMin = 5f;
 
-=======
-    [SerializeField] private float chargeTriggerDistance = 10f;
->>>>>>> 6a2d1cd4ec278c36341e4b52c5b940790c3c37b4
     [SerializeField] private float chargeSpeed = 12f;
     [SerializeField] private float chargeStopDistance = 1.0f;
     [SerializeField] private float chargeCooldown = 2.0f;
@@ -110,7 +107,7 @@ public class BossEnemy : MonoBehaviour
         }
 
         // Start charge if far enough and cooldown ready
-        if (dist >= chargeTriggerDistance && Time.time >= nextChargeTime)
+        if (dist >= chargeTriggerDistanceMax && dist<=chargeTriggerDistanceMin && Time.time >= nextChargeTime)
         {
             StartCharge();
             return;
@@ -264,7 +261,11 @@ private void TryAttack()
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
         Gizmos.color = new Color(1f, 0.3f, 1f, 1f);
-        Gizmos.DrawWireSphere(transform.position, chargeTriggerDistance);
+        Gizmos.DrawWireSphere(transform.position, chargeTriggerDistanceMax);
+
+
+        Gizmos.color = new Color(0.5f, 1f, 1f, 1f);
+        Gizmos.DrawWireSphere(transform.position, chargeTriggerDistanceMin);
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(lockedChargeTarget, 0.25f);

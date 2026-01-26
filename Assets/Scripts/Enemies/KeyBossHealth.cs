@@ -4,16 +4,19 @@ public class KeyBossHealth : MonoBehaviour
 {
     [Header("Key drop on death")]
     [SerializeField] private GameObject key2Prefab; // assign the Key2 prefab in Inspector
-    [SerializeField] private float health = 30f;
+    public float health = 30f;
+    [SerializeField] private BossHealthbar bossHealthbar;
 
     public void TakeDamage(float amount)
     {
         health -= amount;
+        bossHealthbar.UpdateBossHealthBar();
 
         if (health <= 0f)
         {
             DropKey();
             Destroy(gameObject);
+                bossHealthbar.DestroyHealthBar(); 
         }
     }
 

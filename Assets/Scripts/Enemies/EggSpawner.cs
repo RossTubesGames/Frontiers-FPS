@@ -1,9 +1,31 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class EggSpawner : MonoBehaviour
 {
+    public class SpiderGlobalTracker : MonoBehaviour
+{
+    private int id;
+
+    public void Init(int instanceID)
+    {
+        id = instanceID;
+    }
+
+    private void OnDestroy()
+    {
+        EggSpawner.UnregisterSpider(id);
+    }
+}
+
     // The prefab that will be spawned (your small spider enemy prefab).
-    [SerializeField] private GameObject smallSpiderPrefab;
+[SerializeField] private GameObject smallSpiderPrefab;
+private static HashSet<int> aliveSpiderIDs = new HashSet<int>();
+[SerializeField] private int maxGlobalSpiders = 1;
+ [SerializeField]private float activationRange = 25f;
+
+
+private Transform player;
+
 
     // Where the spider should spawn from.
     // If you do not assign this in the Inspector, we will default to the egg's own transform.
@@ -14,6 +36,7 @@ public class EggSpawner : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         // Safety fallback: if no spawnPoint was assigned,
         // spawn from the egg object's position/rotation.
         if (spawnPoint == null)
@@ -40,13 +63,34 @@ public class EggSpawner : MonoBehaviour
         CancelInvoke(nameof(SpawnSmallSpider));
     }
 
-    private void SpawnSmallSpider()
-    {
-        // If the prefab is not assigned, do nothing safely.
-        if (smallSpiderPrefab == null)
-            return;
+private void SpawnSmallSpider()
+{
+    if (smallSpiderPrefab == null)
+        return;
 
-        // Create a new small spider at the spawnPoint position and rotation.
-        Instantiate(smallSpiderPrefab, spawnPoint.position, spawnPoint.rotation);
-    }
+    if (Vector3.Distance(transform.position, player.position) > activationRange)
+        return;
+
+    // Clean dead entries automatically (Unity destroys objects → instance ID becomes invalid)
+    aliveSpiderIDs.RemoveWhere(id => id == 0);
+
+    if (aliveSpiderIDs.Count >= maxGlobalSpiders)
+        return;
+
+    GameObject newSpider = Instantiate(smallSpiderPrefab, spawnPoint.position, spawnPoint.rotation);
+
+    int id = newSpider.GetInstanceID();
+    aliveSpiderIDs.Add(id);
+
+    // Add auto-unregister component
+    var tracker = newSpider.AddComponent<SpiderGlobalTracker>();
+    tracker.Init(id);
+}
+public static void UnregisterSpider(int id)
+{
+    aliveSpiderIDs.Remove(id);
+}
+
+
+
 }

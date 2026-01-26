@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8017863136079069940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: ShowSettings
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5932077719954275766}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3296148021971390645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,8 +624,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5969326110187770813}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 8561525741078820686}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -716,7 +728,8 @@ GameObject:
   - component: {fileID: 695855722005245465}
   - component: {fileID: 6606526574853687987}
   - component: {fileID: 8493024303072037727}
-  - component: {fileID: 5969326110187770813}
+  - component: {fileID: 8561525741078820686}
+  - component: {fileID: 5056240348060623470}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -812,7 +825,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5969326110187770813
+--- !u!114 &8561525741078820686
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -821,13 +834,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5932077719954275766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b554bf60a1a9649ab45ae1f8b39aa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b5b65cdbdcc7334d869ec3a26a2db6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
-  tutorialBox: {fileID: 0}
-  pauseFirstButton: {fileID: 0}
-  tutorialFirstButton: {fileID: 0}
+  settingsMenu: {fileID: 0}
+--- !u!114 &5056240348060623470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5932077719954275766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb429a78e5eae0046b71596450bd462f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicEvent:
+    Guid:
+      Data1: -1291763245
+      Data2: 1148919416
+      Data3: 1913937066
+      Data4: -1873292935
+    Path: event:/Soundtrack
 --- !u!1 &6182420449675027986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,8 +1251,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5969326110187770813}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+      - m_Target: {fileID: 8561525741078820686}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:

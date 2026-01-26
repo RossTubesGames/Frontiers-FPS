@@ -17,7 +17,7 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private float repathInterval = 0.2f;
 
     [Header("Melee")]
-    [SerializeField] private float attackRange = 1.6f;
+    [SerializeField] private float attackRange = 2.5f;
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackCooldown = 1.2f;
 
@@ -27,8 +27,8 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private float attackExitBuffer = 0.4f;
 
     [Header("Charge")]
-    [SerializeField] private float chargeTriggerDistanceMax = 10f;
-    [SerializeField] private float chargeTriggerDistanceMin = 3f;
+    [SerializeField] private float chargeTriggerDistanceMax = 12f;
+    [SerializeField] private float chargeTriggerDistanceMin = 5f;
 
     [SerializeField] private float chargeSpeed = 12f;
     [SerializeField] private float chargeStopDistance = 1.0f;

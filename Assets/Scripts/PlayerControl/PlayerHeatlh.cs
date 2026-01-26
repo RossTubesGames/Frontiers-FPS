@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float health = 100f;
+    public float health = 100f;
     [SerializeField] private HealthBarUI healthBarUI;
 
     public float Health => health;

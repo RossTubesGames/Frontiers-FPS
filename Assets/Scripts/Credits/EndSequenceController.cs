@@ -83,6 +83,11 @@ public class EndSequenceController : MonoBehaviour
 
     private void OnPrepared(VideoPlayer vp)
     {
+        vp.EnableAudioTrack(0, true);
+        vp.SetTargetAudioSource(0, videoPlayer.audioOutputMode == VideoAudioOutputMode.AudioSource
+            ? videoPlayer.GetTargetAudioSource(0)
+            : null);
+
         vp.Play();
         if (credits) credits.enabled = true;
     }

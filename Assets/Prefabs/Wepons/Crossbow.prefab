@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8abd26b7cdb4884a98a44567b9e8966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootOrigin: {fileID: 0}
+  shootOrigin: {fileID: 3644349232754667698}
   aimSource: {fileID: 0}
   aimMaxDistance: 100
   aimMask:
@@ -263,10 +263,10 @@ MonoBehaviour:
   damage: 25
   pierceCount: 3
   fireCooldown: 0.25
-  magazineSize: 6
-  startingReserveAmmo: 36
-  reloadTime: 1
-  autoReloadWhenEmpty: 1
+  magazineSize: 1
+  startingReserveAmmo: 24
+  reloadTime: 3
+  autoReloadWhenEmpty: 0
   hitMask:
     serializedVersion: 2
     m_Bits: 4294967295

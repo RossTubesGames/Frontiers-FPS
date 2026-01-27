@@ -272,6 +272,8 @@ MonoBehaviour:
   useGravity: 1
   lifeTimeSeconds: 30
   minSpeedToRotate: 0.5
+  postHitForwardNudge: 0.08
+  postHitVelocityRestore: 1
   becomesPickupWhenStuck: 1
   ammoOnPickup: 1
   pickupEnableDelay: 0.05

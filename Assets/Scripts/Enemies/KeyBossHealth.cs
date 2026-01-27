@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KeyBossHealth : MonoBehaviour,Arrow.IDamageable
+public class KeyBossHealth : MonoBehaviour,Arrows.IDamageable
 {
     [Header("Key drop on death")]
     [SerializeField] private GameObject key2Prefab; // assign the Key2 prefab in Inspector

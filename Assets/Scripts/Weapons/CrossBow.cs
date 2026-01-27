@@ -120,10 +120,6 @@ public class CrossBow : MonoBehaviour
 
         reloading = false;
     }
-       public string GetAmmoText()
-    {
-        return ammoInMag + "/" + reserveAmmo;
-    }
 
     public void AddReserveAmmo(int amount)
     {

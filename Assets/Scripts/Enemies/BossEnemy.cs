@@ -40,7 +40,7 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private ParticleSystem slamVFX;
     [SerializeField] private float slamVFXLifetime = 3f;
     [SerializeField] private float postSlamWait = 5f;
-    
+
 
     private NavMeshAgent agent;
     private float nextRepathTime;
@@ -107,7 +107,7 @@ public class BossEnemy : MonoBehaviour
         }
 
         // Start charge if far enough and cooldown ready
-        if (dist >= chargeTriggerDistanceMax && dist<=chargeTriggerDistanceMin && Time.time >= nextChargeTime)
+        if (dist >= chargeTriggerDistanceMax && dist <= chargeTriggerDistanceMin && Time.time >= nextChargeTime)
         {
             StartCharge();
             return;
@@ -224,7 +224,7 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-private void TryAttack()
+    private void TryAttack()
     {
         if (Time.time < nextAttackTime) return;
         nextAttackTime = Time.time + attackCooldown;

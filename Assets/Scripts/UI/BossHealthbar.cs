@@ -3,12 +3,12 @@ using UnityEngine.UI;
 using TMPro;
 public class BossHealthbar : MonoBehaviour
 {
-[SerializeField]private KeyBossHealth health;
+[SerializeField]private BossHealth health;
 [SerializeField] private Image fillImage;
 [SerializeField] private float maxhealth;
    public void UpdateBossHealthBar()
     {
-        fillImage.fillAmount = health.health /maxhealth;
+        fillImage.fillAmount = health.bosshealth /maxhealth;
     }
     public void DestroyHealthBar()
     {

@@ -1,14 +1,9 @@
 using UnityEngine;
- 
-
-    
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 public class Arrow : MonoBehaviour
 {
-        
- 
     [Header("Flight")]
     [SerializeField] private bool useGravity = true;
     [SerializeField] private float lifeTimeSeconds = 30f;
@@ -31,10 +26,6 @@ public class Arrow : MonoBehaviour
     private bool stuck;
     private bool pickupEnabled;
     private CrossBow playerCrossbowInRange;
-    public interface IDamageable
-    {
-        void TakeDamage(float amount);
-    }
 
     private void Awake()
     {

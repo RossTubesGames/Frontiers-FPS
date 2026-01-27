@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4071435452158743712}
   - component: {fileID: 3500444952126064133}
   - component: {fileID: 8814192567455496462}
+  - component: {fileID: 5060137519455050284}
   m_Layer: 0
   m_Name: HealthPickupBig
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7210714540680555653}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.3736, y: 38.320538, z: -55.077053}
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 1
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7791486788655378091, guid: 6c3bb34b1bc623b4bbaa5293627fb900, type: 3}
+  - {fileID: 2100000, guid: a3e0a6b5bf13450409e37b9577ad419f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,9 +101,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c696ce60993221542b63431de9417a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  subtitlebox: {fileID: 0}
   player: {fileID: 0}
   healthBarUI: {fileID: 0}
-  healAmmount: 30
+  healAmmount: 50
+  maxHealth: 100
+  display: {fileID: 0}
+  displayTime: 0
+  textHolder: {fileID: 0}
 --- !u!65 &8814192567455496462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,3 +130,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20.667604, y: 27.67706, z: 12.630795}
   m_Center: {x: -0.000014305117, y: 6.7213144, z: -0.0000016689303}
+--- !u!114 &5060137519455050284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7210714540680555653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0a98125f3c48d4d9145e1df96c71bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 50, z: 0}
+  bobHeight: 0.25
+  bobSpeed: 2

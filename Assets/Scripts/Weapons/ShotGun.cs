@@ -7,6 +7,11 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private GameObject hitImpactPrefab;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string shootTriggerName = "Shoot";
+    [SerializeField] private string reloadTriggerName = "Reload";
+
     [Header("Shotgun")]
     [SerializeField] private int pellets = 10;
     [SerializeField] private float damagePerPellet = 5f;
@@ -15,8 +20,8 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private float fireCooldown = 0.8f;
 
     [Header("Ammo")]
-    [SerializeField] private int magazineSize = 2;         // shells in gun
-    [SerializeField] private int startingReserveAmmo = 8;  // extra shells carried
+    [SerializeField] private int magazineSize = 2;
+    [SerializeField] private int startingReserveAmmo = 8;
     [SerializeField] private float reloadTime = 1.2f;
     [SerializeField] private bool autoReloadWhenEmpty = false;
 
@@ -37,6 +42,10 @@ public class ShotGun : MonoBehaviour
     {
         ammoInMag = magazineSize;
         reserveAmmo = startingReserveAmmo;
+
+        // Auto-find animator if not assigned
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
     }
 
     private void OnEnable()
@@ -47,7 +56,8 @@ public class ShotGun : MonoBehaviour
 
     private void Update()
     {
-        if (reloading) return;
+        if (reloading)
+            return;
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -75,12 +85,18 @@ public class ShotGun : MonoBehaviour
         nextFireTime = Time.time + fireCooldown;
         ammoInMag--;
 
+        // Trigger shoot animation
+        if (animator != null)
+            animator.SetTrigger(shootTriggerName);
+
+        // FX + sound
         if (muzzleFlash != null)
         {
             muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             muzzleFlash.Play(true);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun fire");
         }
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun fire");
 
         Transform o = shootOrigin != null ? shootOrigin : transform;
 
@@ -97,13 +113,21 @@ public class ShotGun : MonoBehaviour
                     if (hp != null)
                         hp.TakeDamage(damagePerPellet);
                     else
-                        hit.collider.SendMessageUpwards("TakeDamage", damagePerPellet, SendMessageOptions.DontRequireReceiver);
+                        hit.collider.SendMessageUpwards(
+                            "TakeDamage",
+                            damagePerPellet,
+                            SendMessageOptions.DontRequireReceiver
+                        );
                 }
 
                 if (hitImpactPrefab != null)
                 {
                     Quaternion rot = Quaternion.LookRotation(hit.normal);
-                    GameObject impact = Instantiate(hitImpactPrefab, hit.point + hit.normal * 0.001f, rot);
+                    GameObject impact = Instantiate(
+                        hitImpactPrefab,
+                        hit.point + hit.normal * 0.001f,
+                        rot
+                    );
 
                     if (hitImpactLifetime > 0f)
                         Destroy(impact, hitImpactLifetime);
@@ -118,10 +142,12 @@ public class ShotGun : MonoBehaviour
     private Vector3 GetSpreadDirection(Vector3 forward, float angleDeg)
     {
         Vector3 axis = Vector3.Cross(forward, Vector3.up);
-        if (axis.sqrMagnitude < 0.0001f) axis = Vector3.right;
+        if (axis.sqrMagnitude < 0.0001f)
+            axis = Vector3.right;
 
-        Quaternion rot = Quaternion.AngleAxis(Random.Range(-angleDeg, angleDeg), Vector3.up) *
-                         Quaternion.AngleAxis(Random.Range(-angleDeg, angleDeg), axis);
+        Quaternion rot =
+            Quaternion.AngleAxis(Random.Range(-angleDeg, angleDeg), Vector3.up) *
+            Quaternion.AngleAxis(Random.Range(-angleDeg, angleDeg), axis);
 
         return (rot * forward).normalized;
     }
@@ -129,13 +155,18 @@ public class ShotGun : MonoBehaviour
     private void StartReload()
     {
         if (reloading) return;
-
         if (ammoInMag >= magazineSize) return;
         if (reserveAmmo <= 0) return;
 
         reloading = true;
-        Invoke(nameof(FinishReload), reloadTime);
+
+        // Trigger reload animation
+        if (animator != null)
+            animator.SetTrigger(reloadTriggerName);
+
         FMODUnity.RuntimeManager.PlayOneShot("event:/Shotgun reload");
+
+        Invoke(nameof(FinishReload), reloadTime);
     }
 
     private void FinishReload()
@@ -149,6 +180,8 @@ public class ShotGun : MonoBehaviour
         reloading = false;
     }
 
+    // -------- UI / External --------
+
     public string GetAmmoText()
     {
         return ammoInMag + "/" + reserveAmmo;
@@ -159,7 +192,6 @@ public class ShotGun : MonoBehaviour
         if (amount <= 0) return;
         reserveAmmo += amount;
     }
-
 
     public int GetAmmoInMag() => ammoInMag;
     public int GetReserveAmmo() => reserveAmmo;

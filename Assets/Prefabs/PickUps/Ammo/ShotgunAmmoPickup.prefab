@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8622862836532182318}
   - component: {fileID: 3438181254096491126}
   - component: {fileID: 8128105219914327533}
+  - component: {fileID: 3410839135583403379}
+  - component: {fileID: 237896946059799371}
   m_Layer: 0
   m_Name: ShotgunAmmoPickup
   m_TagString: Untagged
@@ -65,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7791486788655378091, guid: 6c3bb34b1bc623b4bbaa5293627fb900, type: 3}
+  - {fileID: 2100000, guid: ab71acf3c042b844d95d8f4ce948f82a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,7 +102,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   revolverBullets: 0
-  shotgunShells: 4
+  shotgunShells: 8
   playerTag: Player
   destroyOnPickup: 1
   searchFromPlayerRoot: 1
+--- !u!65 &3410839135583403379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507362187379180097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 36.29651, y: 10.03004, z: 26.390644}
+  m_Center: {x: -0.000015258789, y: 0, z: 0}
+--- !u!114 &237896946059799371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507362187379180097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0a98125f3c48d4d9145e1df96c71bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 50, z: 0}
+  bobHeight: 0.25
+  bobSpeed: 2

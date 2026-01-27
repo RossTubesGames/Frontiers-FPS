@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour,Arrow.IDamageable
 {
 
     [SerializeField] private float health = 30f;

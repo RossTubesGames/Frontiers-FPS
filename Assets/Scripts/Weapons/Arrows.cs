@@ -2,13 +2,16 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-
 public class Arrows : MonoBehaviour
 {
     [Header("Flight")]
     [SerializeField] private bool useGravity = true;
     [SerializeField] private float lifeTimeSeconds = 30f;
     [SerializeField] private float minSpeedToRotate = 0.5f;
+
+    [Header("Pierce Tuning")]
+    [SerializeField] private float postHitForwardNudge = 0.08f; // meters
+    [SerializeField] private float postHitVelocityRestore = 1.0f; // 0..1 (1 = full restore)
 
     [Header("Pickup")]
     [SerializeField] private bool becomesPickupWhenStuck = true;
@@ -30,6 +33,9 @@ public class Arrows : MonoBehaviour
     private CrossBow playerCrossbowInRange;
 =======
     private Crossbow playerCrossbowInRange;
+
+    private Vector3 lastVelocity;
+
     public interface IDamageable
     {
         void TakeDamage(float amount);
@@ -40,6 +46,10 @@ public class Arrows : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+
+        // Helps fast projectiles a lot
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     public void Launch(Vector3 velocity, float damage, int pierceCount, LayerMask hitMask, string enemyTag)
@@ -57,8 +67,15 @@ public class Arrows : MonoBehaviour
         col.isTrigger = false;
 
         rb.linearVelocity = velocity;
+        lastVelocity = velocity;
 
         Destroy(gameObject, lifeTimeSeconds);
+    }
+
+    private void FixedUpdate()
+    {
+        if (stuck) return;
+        lastVelocity = rb.linearVelocity;
     }
 
     private void Update()
@@ -88,7 +105,6 @@ public class Arrows : MonoBehaviour
         // Respect hit mask
         if (((1 << collision.gameObject.layer) & hitMask) == 0)
         {
-            // Not in mask, ignore physically but avoid endless bouncing if needed
             return;
         }
 
@@ -98,17 +114,24 @@ public class Arrows : MonoBehaviour
         {
             ApplyDamageIfPossible(collision.collider);
 
-            // Prevent repeated hits on same collider due to physics jitter
+            // Always ignore future collisions with this enemy collider
             Physics.IgnoreCollision(col, collision.collider, true);
 
             if (pierceRemaining > 0)
             {
                 pierceRemaining--;
-                // Keep flying
+
+                // Undo the bounce: restore pre-impact velocity and push forward out of the collider
+                Vector3 restoreVel = Vector3.Lerp(rb.linearVelocity, lastVelocity, Mathf.Clamp01(postHitVelocityRestore));
+                rb.linearVelocity = restoreVel;
+
+                Vector3 forward = (restoreVel.sqrMagnitude > 0.001f) ? restoreVel.normalized : transform.forward;
+                rb.MovePosition(rb.position + forward * postHitForwardNudge);
+
                 return;
             }
 
-            // No pierce left, stick into the enemy at this contact point
+            // No pierce left, stick into the enemy
             StickInto(collision);
             return;
         }
@@ -119,17 +142,12 @@ public class Arrows : MonoBehaviour
 
     private void ApplyDamageIfPossible(Collider hitCol)
     {
-        // Try interface first (recommended)
         IDamageable dmg = hitCol.GetComponentInParent<IDamageable>();
         if (dmg != null)
         {
             dmg.TakeDamage(damage);
             return;
         }
-
-        // Optional fallback: try a Health component name if you use one
-        // var health = hitCol.GetComponentInParent<EnemyHealth>();
-        // if (health != null) health.TakeDamage(damage);
     }
 
     private void StickInto(Collision collision)
@@ -141,14 +159,13 @@ public class Arrows : MonoBehaviour
         rb.isKinematic = true;
         rb.useGravity = false;
 
-        // Snap to contact point with the arrow pointing along its incoming direction if possible
         ContactPoint cp = collision.GetContact(0);
         transform.position = cp.point;
 
         Vector3 forward = transform.forward;
-        if (collision.relativeVelocity.sqrMagnitude > 0.001f)
+        if (lastVelocity.sqrMagnitude > 0.001f)
         {
-            forward = collision.relativeVelocity.normalized;
+            forward = lastVelocity.normalized;
         }
 
         if (forward.sqrMagnitude > 0.001f)
@@ -156,14 +173,11 @@ public class Arrows : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(forward);
         }
 
-        // Parent to the hit object so it moves with it
         transform.SetParent(collision.transform, true);
 
         if (becomesPickupWhenStuck)
         {
-            // Switch collider to trigger so player can collect
             col.isTrigger = true;
-            // Delay enabling pickup to avoid instantly picking it up while shooting
             Invoke(nameof(EnablePickup), pickupEnableDelay);
         }
     }
@@ -177,7 +191,6 @@ public class Arrows : MonoBehaviour
     {
         if (!stuck || !pickupEnabled) return;
 
-        // Minimal approach: find CrossBow on player
         Crossbow bow = other.GetComponentInParent<Crossbow>();
         if (bow != null)
         {

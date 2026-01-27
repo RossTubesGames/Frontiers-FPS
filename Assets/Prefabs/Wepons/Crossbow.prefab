@@ -264,7 +264,7 @@ MonoBehaviour:
   pierceCount: 3
   fireCooldown: 2
   magazineSize: 1
-  startingReserveAmmo: 12
+  startingReserveAmmo: 24
   reloadTime: 3
   autoReloadWhenEmpty: 0
   hitMask:

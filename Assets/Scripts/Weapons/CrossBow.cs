@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CrossBow : MonoBehaviour
+public class Crossbow : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform shootOrigin;
@@ -35,7 +35,6 @@ public class CrossBow : MonoBehaviour
 
     private float nextFireTime;
     private bool reloading;
-
     private void Start()
     {
         ammoInMag = magazineSize;
@@ -96,8 +95,6 @@ public class CrossBow : MonoBehaviour
 
         arrowInstance.Launch(dir * muzzleSpeed, damage, pierceCount, hitMask, enemyTag);
     }
-
-
     private void TryStartReload()
     {
         if (reloading) return;
@@ -120,7 +117,7 @@ public class CrossBow : MonoBehaviour
 
         reloading = false;
     }
-       public string GetAmmoText()
+    public string GetAmmoText()
     {
         return ammoInMag + "/" + reserveAmmo;
     }

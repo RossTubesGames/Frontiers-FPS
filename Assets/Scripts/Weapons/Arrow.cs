@@ -1,14 +1,10 @@
 using UnityEngine;
- 
-
-    
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
+
 public class Arrow : MonoBehaviour
 {
-        
- 
     [Header("Flight")]
     [SerializeField] private bool useGravity = true;
     [SerializeField] private float lifeTimeSeconds = 30f;
@@ -30,7 +26,7 @@ public class Arrow : MonoBehaviour
 
     private bool stuck;
     private bool pickupEnabled;
-    private CrossBow playerCrossbowInRange;
+    private Crossbow playerCrossbowInRange;
     public interface IDamageable
     {
         void TakeDamage(float amount);
@@ -177,8 +173,8 @@ public class Arrow : MonoBehaviour
     {
         if (!stuck || !pickupEnabled) return;
 
-        // Minimal approach: find CrossBow on player
-        CrossBow bow = other.GetComponentInParent<CrossBow>();
+        // Minimal approach: find Crossbow on player
+        Crossbow bow = other.GetComponentInParent<Crossbow>();
         if (bow != null)
         {
             playerCrossbowInRange = bow;
@@ -189,7 +185,7 @@ public class Arrow : MonoBehaviour
     {
         if (playerCrossbowInRange == null) return;
 
-        CrossBow bow = other.GetComponentInParent<CrossBow>();
+        Crossbow bow = other.GetComponentInParent<Crossbow>();
         if (bow != null && bow == playerCrossbowInRange)
         {
             playerCrossbowInRange = null;

@@ -98724,6 +98724,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7659436142820973939, guid: d4189b033e195274189442b2b85d2677, type: 3}
   m_PrefabInstance: {fileID: 2025610377}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2036615595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3644349232754667698, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+  m_PrefabInstance: {fileID: 5160855179532927385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &2046901215
 Mesh:
   m_ObjectHideFlags: 0
@@ -100132,6 +100137,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5160320253436296648, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: aimSource
+      value: 
+      objectReference: {fileID: 234296827}
+    - target: {fileID: 5160320253436296648, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: shootOrigin
+      value: 
+      objectReference: {fileID: 2036615595}
     - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3

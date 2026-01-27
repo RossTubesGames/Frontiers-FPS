@@ -183,7 +183,6 @@ GameObject:
   - component: {fileID: 2828084761114106717}
   - component: {fileID: 6342589738241226175}
   - component: {fileID: 9178288685501690128}
-  - component: {fileID: 1414613777169546264}
   m_Layer: 7
   m_Name: Arrow
   m_TagString: Untagged
@@ -257,25 +256,6 @@ CapsuleCollider:
   m_Height: 2.6615658
   m_Direction: 1
   m_Center: {x: 1.1265371e-15, y: 0, z: 0.5400188}
---- !u!114 &1414613777169546264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4986452623904923513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e917f1d46a26542981b7d71694e3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useGravity: 1
-  lifeTimeSeconds: 30
-  minSpeedToRotate: 0.5
-  becomesPickupWhenStuck: 1
-  ammoOnPickup: 1
-  pickupEnableDelay: 0.05
-  pickupKey: 102
 --- !u!1 &6661732505730023527
 GameObject:
   m_ObjectHideFlags: 0

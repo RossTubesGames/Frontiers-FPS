@@ -258,7 +258,7 @@ MonoBehaviour:
   aimMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  arrowPrefab: {fileID: 4222402305980542055, guid: cddf3cf7e0d020a44a4050c177c17fbf, type: 3}
+  arrowPrefab: {fileID: 1414613777169546264, guid: cddf3cf7e0d020a44a4050c177c17fbf, type: 3}
   muzzleSpeed: 55
   damage: 50
   pierceCount: 3

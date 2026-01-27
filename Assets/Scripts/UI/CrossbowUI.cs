@@ -4,7 +4,7 @@ using TMPro;
 
 public class CrossbowUI : MonoBehaviour
 {
-    [SerializeField] private CrossBow crossBow;
+    [SerializeField] private Crossbow crossBow;
     [SerializeField] private TMP_Text text;
     [SerializeField] private GameObject crossbowIcon;
 

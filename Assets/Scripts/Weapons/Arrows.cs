@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 
-public class Arrow : MonoBehaviour
+public class Arrows : MonoBehaviour
 {
     [Header("Flight")]
     [SerializeField] private bool useGravity = true;
@@ -173,7 +173,7 @@ public class Arrow : MonoBehaviour
     {
         if (!stuck || !pickupEnabled) return;
 
-        // Minimal approach: find Crossbow on player
+        // Minimal approach: find CrossBow on player
         Crossbow bow = other.GetComponentInParent<Crossbow>();
         if (bow != null)
         {

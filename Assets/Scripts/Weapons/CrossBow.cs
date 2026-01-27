@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class Crossbow : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class Crossbow : MonoBehaviour
     [SerializeField] private LayerMask aimMask = ~0;       // what the camera can aim at (world + enemies)
 
     [Header("Projectile")]
-    [SerializeField] private Arrow arrowPrefab;
+    [SerializeField] private Arrows arrowPrefab;
     [SerializeField] private float muzzleSpeed = 55f;
 
     [Header("CrossBow")]
@@ -90,7 +90,7 @@ public class Crossbow : MonoBehaviour
         // 2) Shoot from the muzzle toward that target point
         Vector3 dir = (targetPoint - shootOrigin.position).normalized;
 
-        Arrow arrowInstance = Instantiate(arrowPrefab, shootOrigin.position, Quaternion.LookRotation(dir));
+        Arrows arrowInstance = Instantiate(arrowPrefab, shootOrigin.position, Quaternion.LookRotation(dir));
         arrowInstance.transform.SetParent(null, true);
 
         arrowInstance.Launch(dir * muzzleSpeed, damage, pierceCount, hitMask, enemyTag);

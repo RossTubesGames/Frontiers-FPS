@@ -26,6 +26,7 @@ public class TriggerSceneLoader : MonoBehaviour
         OnTriggerEnterEvent?.Invoke();
         OnBeforeLoad?.Invoke();
 
+        Destroy(gameObject); // destroy this pickup/trigger object
         SceneManager.LoadScene(sceneName);
     }
 }

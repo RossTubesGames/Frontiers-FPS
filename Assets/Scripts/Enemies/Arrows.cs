@@ -29,10 +29,6 @@ public class Arrows : MonoBehaviour
 
     private bool stuck;
     private bool pickupEnabled;
-<<<<<<< HEAD:Assets/Scripts/Weapons/Arrows.cs
-
-=======
->>>>>>> c7af2187104436ba9dc1de60ea18bda460beeed2:Assets/Scripts/Enemies/Arrows.cs
     private Crossbow playerCrossbowInRange;
 
     private Vector3 lastVelocity;
@@ -41,10 +37,6 @@ public class Arrows : MonoBehaviour
     {
         void TakeDamage(float amount);
     }
-<<<<<<< HEAD:Assets/Scripts/Weapons/Arrows.cs
-
-=======
->>>>>>> c7af2187104436ba9dc1de60ea18bda460beeed2:Assets/Scripts/Enemies/Arrows.cs
 
     private void Awake()
     {

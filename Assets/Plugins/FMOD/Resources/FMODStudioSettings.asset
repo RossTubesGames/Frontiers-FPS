@@ -390,10 +390,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:/Users/ingma/OneDrive - Saxion/Desktop/Project Frontiers/FMOD
-    project/fmod project.fspro
-  sourceBankPath: C:/Users/ingma/OneDrive - Saxion/Desktop/Project Frontiers/FMOD
-    project/Build
+  sourceProjectPath: ../../../../Downloads/fmod project/fmod project.fspro
+  sourceBankPath: ../../../../Downloads/fmod project/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

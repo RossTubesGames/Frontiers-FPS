@@ -183,7 +183,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -304,6 +304,131 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008839392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &94474907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94474912}
+  - component: {fileID: 94474911}
+  - component: {fileID: 94474910}
+  - component: {fileID: 94474909}
+  - component: {fileID: 94474913}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &94474909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94474907}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &94474910
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94474907}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &94474911
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94474907}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &94474912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94474907}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.59, y: 0.5608862, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &94474913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94474907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5106ee3f0824d8a4eb6b6c13b7c8860f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitlebox: {fileID: 1201658489}
+>>>>>>> Stashed changes
 --- !u!1 &212999081 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4641975517039292864, guid: b8a2f51e58982ad4d98d02c7b5692d45, type: 3}
@@ -322,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitlebox: {fileID: 1201658489}
-  player: {fileID: 824854966}
+  player: {fileID: 0}
   healthBarUI: {fileID: 897022463}
   healAmmount: 20
   maxHealth: 100
@@ -340,7 +465,7 @@ PrefabInstance:
     - target: {fileID: -2057227079350921295, guid: b8a2f51e58982ad4d98d02c7b5692d45, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 824854966}
+      objectReference: {fileID: 0}
     - target: {fileID: -2057227079350921295, guid: b8a2f51e58982ad4d98d02c7b5692d45, type: 3}
       propertyPath: display
       value: 
@@ -617,7 +742,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -901,7 +1026,7 @@ PrefabInstance:
     - target: {fileID: -2057227079350921295, guid: b8a2f51e58982ad4d98d02c7b5692d45, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 824854966}
+      objectReference: {fileID: 0}
     - target: {fileID: -2057227079350921295, guid: b8a2f51e58982ad4d98d02c7b5692d45, type: 3}
       propertyPath: display
       value: 
@@ -1002,7 +1127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitlebox: {fileID: 1201658489}
-  player: {fileID: 824854966}
+  player: {fileID: 0}
   healthBarUI: {fileID: 897022463}
   healAmmount: 20
   maxHealth: 100
@@ -1120,6 +1245,7 @@ GameObject:
   - component: {fileID: 630657821}
   - component: {fileID: 630657820}
   - component: {fileID: 630657822}
+  - component: {fileID: 630657823}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1297,6 +1423,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &630657823
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630657814}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &663475852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,7 +1509,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -1546,7 +1694,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -1731,7 +1879,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -2047,7 +2195,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -2090,8 +2238,8 @@ GameObject:
   - component: {fileID: 824854963}
   - component: {fileID: 824854964}
   - component: {fileID: 824854965}
-  - component: {fileID: 824854966}
   - component: {fileID: 824854967}
+  - component: {fileID: 824854968}
   m_Layer: 0
   m_Name: FirstpersonCharacter
   m_TagString: Player
@@ -2177,20 +2325,6 @@ MonoBehaviour:
   dashDuration: 0.3
   dashCooldown: 0.6
   requireGroundedToDash: 0
---- !u!114 &824854966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824854962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274cce5c11eb4a043aa25a39f6e5c384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  healthBarUI: {fileID: 897022463}
 --- !u!136 &824854967
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2214,6 +2348,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &824854968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824854962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274cce5c11eb4a043aa25a39f6e5c384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthBarUI: {fileID: 897022463}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2475,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -2475,6 +2623,7 @@ GameObject:
   - component: {fileID: 917000636}
   - component: {fileID: 917000635}
   - component: {fileID: 917000637}
+  - component: {fileID: 917000638}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -2652,6 +2801,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &917000638
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917000629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &995348086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,6 +2839,7 @@ GameObject:
   - component: {fileID: 995348093}
   - component: {fileID: 995348092}
   - component: {fileID: 995348094}
+  - component: {fileID: 995348095}
   m_Layer: 0
   m_Name: Enemy (4)
   m_TagString: Enemy
@@ -2845,6 +3017,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &995348095
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995348086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1008839391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,7 +3054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1008839392
 Transform:
   m_ObjectHideFlags: 0
@@ -2912,6 +3106,7 @@ GameObject:
   - component: {fileID: 1028030449}
   - component: {fileID: 1028030448}
   - component: {fileID: 1028030450}
+  - component: {fileID: 1028030451}
   m_Layer: 0
   m_Name: Enemy (3)
   m_TagString: Enemy
@@ -3089,6 +3284,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &1028030451
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028030442}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1039489655 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7129481952838286354, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
@@ -3158,7 +3375,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -3295,6 +3512,7 @@ GameObject:
   - component: {fileID: 1066382067}
   - component: {fileID: 1066382066}
   - component: {fileID: 1066382068}
+  - component: {fileID: 1066382069}
   m_Layer: 0
   m_Name: Enemy (6)
   m_TagString: Enemy
@@ -3472,11 +3690,36 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+<<<<<<< Updated upstream
 --- !u!1 &1074850980 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4890698419348195702, guid: abfcff332e2a97447bc880b2180a810f, type: 3}
   m_PrefabInstance: {fileID: 5299778974492619977}
   m_PrefabAsset: {fileID: 0}
+=======
+--- !u!95 &1066382069
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066382060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+>>>>>>> Stashed changes
 --- !u!114 &1107192796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8921835749430384557, guid: abfcff332e2a97447bc880b2180a810f, type: 3}
@@ -3552,7 +3795,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -3915,7 +4158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -4100,7 +4343,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -4237,6 +4480,7 @@ GameObject:
   - component: {fileID: 1261455810}
   - component: {fileID: 1261455809}
   - component: {fileID: 1261455811}
+  - component: {fileID: 1261455812}
   m_Layer: 0
   m_Name: Enemy (5)
   m_TagString: Enemy
@@ -4414,6 +4658,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &1261455812
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261455803}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1318931523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4744,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -4663,7 +4929,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -4800,6 +5066,7 @@ GameObject:
   - component: {fileID: 1341734234}
   - component: {fileID: 1341734233}
   - component: {fileID: 1341734235}
+  - component: {fileID: 1341734236}
   m_Layer: 0
   m_Name: Enemy (7)
   m_TagString: Enemy
@@ -4977,6 +5244,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &1341734236
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341734227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1390214736
 GameObject:
   m_ObjectHideFlags: 0
@@ -4989,6 +5278,10 @@ GameObject:
   - component: {fileID: 1390214739}
   - component: {fileID: 1390214738}
   - component: {fileID: 1390214740}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 1390214741}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -5089,6 +5382,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< Updated upstream
+=======
+--- !u!114 &1390214741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390214736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b7ace9d39e8d24eabc5fc6b2cc7df6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key2Prefab: {fileID: 2088630907}
+  health: 1
+  bossHealthbar: {fileID: 601477836}
+>>>>>>> Stashed changes
 --- !u!1 &1394784391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,7 +5464,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -5338,7 +5649,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -5528,7 +5839,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -5713,7 +6024,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -5898,7 +6209,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -6083,7 +6394,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -6204,6 +6515,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1008839392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1001 &1829940485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 489903317}
+    m_Modifications:
+    - target: {fileID: 2676478794675000114, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: aimSource
+      value: 
+      objectReference: {fileID: 824854963}
+    - target: {fileID: 2676478794675000114, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: pierceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644349232754667698, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363754117329588998, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_Name
+      value: Crossbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2583937
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.23741585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6681229
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.74405104
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -96.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766449151748949195, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f7df4a18a9d73e74caae26da8bca1824, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &1832876474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6410,7 +6793,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackRange: 2
-  damage: 20
+  damage: 1
   attackCooldown: 4
   retreatTime: 4
   retreatSpeedMult: 1.2
@@ -6837,6 +7220,7 @@ GameObject:
   - component: {fileID: 2132587139}
   - component: {fileID: 2132587138}
   - component: {fileID: 2132587140}
+  - component: {fileID: 2132587141}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Enemy
@@ -7014,6 +7398,28 @@ MonoBehaviour:
   attackRange: 2
   damage: 10
   attackCooldown: 1
+--- !u!95 &2132587141
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132587132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4008ad290e58dff4f810ddfba122bef2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2140340521 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9095557782323925770, guid: abfcff332e2a97447bc880b2180a810f, type: 3}
@@ -7040,7 +7446,7 @@ PrefabInstance:
     - target: {fileID: 2123981516696068968, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: health
       value: 
-      objectReference: {fileID: 1832876479}
+      objectReference: {fileID: 1390214741}
     - target: {fileID: 3053218561959897385, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: shotgun
       value: 
@@ -7140,7 +7546,7 @@ PrefabInstance:
     - target: {fileID: 8934718438383001823, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 824854966}
+      objectReference: {fileID: 824854968}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7255,6 +7661,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfcff332e2a97447bc880b2180a810f, type: 3}
+--- !u!1001 &5412469150052020424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 123358315466073631, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_Name
+      value: Priest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4098975389409093891, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 824854963}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8166173
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4113003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5900394317560502682, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7712069874089041742, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
+      propertyPath: health
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22cbe538b2ea5ae4c856b917a0757cae, type: 3}
 --- !u!1001 &7673086322242282781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7499,4 +7970,11 @@ SceneRoots:
   - {fileID: 7673086322242282781}
   - {fileID: 231981552}
   - {fileID: 521089627}
+<<<<<<< Updated upstream
   - {fileID: 2088630911}
+=======
+  - {fileID: 4365246016475593840}
+  - {fileID: 804438604}
+  - {fileID: 94474912}
+  - {fileID: 5412469150052020424}
+>>>>>>> Stashed changes

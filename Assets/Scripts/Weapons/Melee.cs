@@ -14,6 +14,10 @@ public class Melee : MonoBehaviour
 
     [Header("Timing")]
     [SerializeField] private float cooldown = 0.25f;
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private string punchTriggerName = "Punch";
+
 
     private float nextTime;
 
@@ -22,6 +26,8 @@ public class Melee : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Time.time >= nextTime)
         {
             nextTime = Time.time + cooldown;
+            if (animator != null)
+            animator.SetTrigger(punchTriggerName);
             Punch();
         }
     }

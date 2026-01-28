@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject settingsMenu;
-    [SerializeField] private GameObject settingsFirstSelected; 
-    private GameObject previousMenu;
+   [SerializeField] private GameObject settingsMenu;
+   [SerializeField] private GameObject settingsFirstSelected; 
+   [SerializeField] private GameObject previousMenu;
 
 
     public void SetMasterVolume(float value)
@@ -30,23 +30,18 @@ public class SettingsMenu : MonoBehaviour
             value
         );
     }
- public void ShowSettings(GameObject currentMenu)
+ public void ShowSettings()
 {
-    previousMenu = currentMenu;
-    currentMenu.SetActive(false); 
+       if (EventSystem.current != null && settingsFirstSelected != null)
+        EventSystem.current.SetSelectedGameObject(settingsFirstSelected);
+    previousMenu.SetActive(false); 
     settingsMenu.SetActive(true);   
-    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
-    
-
 }
 public void HideSettings()
 {
     settingsMenu.SetActive(false);
-
     if (previousMenu != null)
-        previousMenu.SetActive(true);
-
-    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+    previousMenu.SetActive(true);
+     UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
 }
-
 }

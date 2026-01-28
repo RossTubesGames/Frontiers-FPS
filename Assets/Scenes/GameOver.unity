@@ -432,6 +432,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< Updated upstream
+    - target: {fileID: 3874367130007588697, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+=======
+    - target: {fileID: 3529876546344532524, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Boss soundtrack full
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529876546344532524, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -978920686
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529876546344532524, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1278147720
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529876546344532524, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 28048036
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529876546344532524, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 2042085371
+>>>>>>> Stashed changes
+      objectReference: {fileID: 0}
     - target: {fileID: 5959635481838479267, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -521,6 +547,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &5988090527654738171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7281575793664860782, guid: 1a4c37318327c5b4baa72805941ebec1, type: 3}
+  m_PrefabInstance: {fileID: 5988090527654738170}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5988090527654738172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988090527654738171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5b65cdbdcc7334d869ec3a26a2db6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

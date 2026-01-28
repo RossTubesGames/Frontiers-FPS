@@ -117,14 +117,10 @@ public class Crossbow : MonoBehaviour
 
         reloading = false;
     }
-<<<<<<< HEAD
-=======
     public string GetAmmoText()
     {
         return ammoInMag + "/" + reserveAmmo;
     }
->>>>>>> 5ac2df7a4d13fde6e827e0ef1f4f7d5b97ade46f
-
     public void AddReserveAmmo(int amount)
     {
         reserveAmmo += Mathf.Max(0, amount);

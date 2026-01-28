@@ -26,15 +26,13 @@ public class Arrows : MonoBehaviour
 
     private bool stuck;
     private bool pickupEnabled;
-<<<<<<< HEAD:Assets/Scripts/Weapons/Arrow.cs
-    private CrossBow playerCrossbowInRange;
-=======
+
     private Crossbow playerCrossbowInRange;
     public interface IDamageable
     {
         void TakeDamage(float amount);
     }
->>>>>>> 5ac2df7a4d13fde6e827e0ef1f4f7d5b97ade46f:Assets/Scripts/Weapons/Arrows.cs
+
 
     private void Awake()
     {

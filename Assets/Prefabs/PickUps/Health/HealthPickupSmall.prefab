@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 3473138107415423305}
   - component: {fileID: 7687268648700632173}
   - component: {fileID: 4815015651057431051}
-  - component: {fileID: 2511031417484338887}
   - component: {fileID: 8828285857449104199}
-  - component: {fileID: 7065251774614402987}
   - component: {fileID: 862278913678542148}
   m_Layer: 0
   m_Name: HealthPickupSmall
@@ -90,26 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2511031417484338887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607008416196413882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c696ce60993221542b63431de9417a49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  subtitlebox: {fileID: 0}
-  player: {fileID: 0}
-  healthBarUI: {fileID: 0}
-  healAmmount: 15
-  maxHealth: 100
-  display: {fileID: 0}
-  displayTime: 0
-  textHolder: {fileID: 0}
 --- !u!65 &8828285857449104199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,21 +109,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9107666, y: 16.278326, z: 2.910768}
   m_Center: {x: 0.000056028366, y: 2.034971, z: -0.00000011920929}
---- !u!114 &7065251774614402987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607008416196413882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a0a98125f3c48d4d9145e1df96c71bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: {x: 0, y: 50, z: 0}
-  bobHeight: 0.25
-  bobSpeed: 2
 --- !u!114 &862278913678542148
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2465,7 +2465,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -22.505209, y: 36.93999, z: -56.76889}
-  m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
+  m_LocalScale: {x: 2.3000002, y: 2.3, z: 2.3000002}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 155285148068191408}
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chaseRange: 50
+  chaseRange: 20
   stopDistance: 1.6
   repathInterval: 0.2
   attackRange: 5

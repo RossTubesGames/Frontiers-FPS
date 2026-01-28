@@ -59,8 +59,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallSpiderPrefab: {fileID: 606576831900176061, guid: ff9ff34ca5589da458a560054cd531c7, type: 3}
+  maxGlobalSpiders: 400
+  activationRange: 25
   spawnPoint: {fileID: 330019223323939057}
-  spawnInterval: 20
+  spawnInterval: 2.5
 --- !u!54 &855367553660733698
 Rigidbody:
   m_ObjectHideFlags: 0

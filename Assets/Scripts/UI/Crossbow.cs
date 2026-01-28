@@ -121,6 +121,10 @@ public class Crossbow : MonoBehaviour
     {
         return ammoInMag + "/" + reserveAmmo;
     }
+<<<<<<< HEAD:Assets/Scripts/Weapons/CrossBow.cs
+=======
+
+>>>>>>> c7af2187104436ba9dc1de60ea18bda460beeed2:Assets/Scripts/UI/Crossbow.cs
     public void AddReserveAmmo(int amount)
     {
         reserveAmmo += Mathf.Max(0, amount);

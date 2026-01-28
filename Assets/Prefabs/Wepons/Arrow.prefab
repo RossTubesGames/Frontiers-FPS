@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 2828084761114106717}
   - component: {fileID: 6342589738241226175}
   - component: {fileID: 9178288685501690128}
-  - component: {fileID: 1414613777169546264}
+  - component: {fileID: 8405032908290081866}
   m_Layer: 7
   m_Name: Arrow
   m_TagString: Untagged
@@ -249,7 +249,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -257,7 +257,7 @@ CapsuleCollider:
   m_Height: 2.6615658
   m_Direction: 1
   m_Center: {x: 1.1265371e-15, y: 0, z: 0.5400188}
---- !u!114 &1414613777169546264
+--- !u!114 &8405032908290081866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,12 +266,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4986452623904923513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e917f1d46a26542981b7d71694e3f4, type: 3}
+  m_Script: {fileID: 11500000, guid: b28bdbd63396d72429720ddf58f82ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useGravity: 1
   lifeTimeSeconds: 30
   minSpeedToRotate: 0.5
+  postHitForwardNudge: 0.08
+  postHitVelocityRestore: 1
   becomesPickupWhenStuck: 1
   ammoOnPickup: 1
   pickupEnableDelay: 0.05

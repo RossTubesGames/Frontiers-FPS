@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6766449151748949195}
-  - component: {fileID: 2676478794675000114}
+  - component: {fileID: 5160320253436296648}
   m_Layer: 0
   m_Name: Crossbow
   m_TagString: Untagged
@@ -240,7 +240,7 @@ Transform:
   - {fileID: 3644349232754667698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2676478794675000114
+--- !u!114 &5160320253436296648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4363754117329588998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601c52a548481aa47bff4c7edbb0c771, type: 3}
+  m_Script: {fileID: 11500000, guid: c8abd26b7cdb4884a98a44567b9e8966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootOrigin: {fileID: 3644349232754667698}
@@ -258,13 +258,13 @@ MonoBehaviour:
   aimMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  arrowPrefab: {fileID: 1414613777169546264, guid: cddf3cf7e0d020a44a4050c177c17fbf, type: 3}
+  arrowPrefab: {fileID: 8405032908290081866, guid: cddf3cf7e0d020a44a4050c177c17fbf, type: 3}
   muzzleSpeed: 55
-  damage: 50
+  damage: 25
   pierceCount: 3
-  fireCooldown: 2
+  fireCooldown: 0.25
   magazineSize: 1
-  startingReserveAmmo: 12
+  startingReserveAmmo: 24
   reloadTime: 3
   autoReloadWhenEmpty: 0
   hitMask:

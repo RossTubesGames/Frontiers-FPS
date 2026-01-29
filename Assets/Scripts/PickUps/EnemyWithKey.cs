@@ -1,25 +1,23 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class EnemyWithKey : MonoBehaviour
 {
     [SerializeField] private GameObject keyPrefab;
-    //assign this script if you want a specific enemy(not a boss) to drop a key
-    void OnDestroy()
+
+    private bool keyDropped;
+
+    // Call this from your enemy health script when it actually dies
+    public void DropKeyOnce()
     {
-        DropKey();
-    }
-    void DropKey()
-    {
-        // Only drop if a prefab is assigned
+        if (keyDropped) return;
+        keyDropped = true;
+
         if (keyPrefab == null)
         {
-            Debug.LogWarning("KeyBossHealth: No key prefab assigned.");
+            Debug.LogWarning($"{name}: No key prefab assigned.");
             return;
         }
 
-        // Spawn the key at the boss position (you can add an offset if needed)
         Instantiate(keyPrefab, transform.position, Quaternion.identity);
     }
 }

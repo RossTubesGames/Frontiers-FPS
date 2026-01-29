@@ -29,7 +29,10 @@ public class Arrows : MonoBehaviour
 
     private bool stuck;
     private bool pickupEnabled;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7ef5aaee30d1fe9049575437171d978c2f706b06
     private Crossbow playerCrossbowInRange;
 
     private Vector3 lastVelocity;
@@ -38,6 +41,10 @@ public class Arrows : MonoBehaviour
     {
         void TakeDamage(float amount);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7ef5aaee30d1fe9049575437171d978c2f706b06
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

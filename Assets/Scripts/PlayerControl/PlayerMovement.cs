@@ -119,10 +119,20 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         cooldown++;
+
         if (cooldown >= 25) cooldown = 0;
 
         currentSpeed = (transform.position - lastPosition).magnitude / Time.deltaTime;
         lastPosition = transform.position;
+
+
+        if (cooldown >= 35)
+        {
+            cooldown=0;
+        }
+        //calculate current speed
+        currentSpeed=(transform.position-lastPosition).magnitude/Time.deltaTime;
+        lastPosition=transform.position;
 
         if (Input.GetKeyDown(KeyCode.Space))
             jumpQueued = true;

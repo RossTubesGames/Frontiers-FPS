@@ -1,10 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
 
 [SerializeField] private GameObject pauseMenuUI;
+[SerializeField]private GameObject tutorialBox;
+[SerializeField] private GameObject pauseFirstButton;
+[SerializeField] private GameObject tutorialFirstButton;
 
  private bool isPaused = false;
      void Start()
@@ -23,32 +29,43 @@ public class UIManager : MonoBehaviour
             TogglePause();
         }
     }
-    void TogglePause()
-    {
-        isPaused = !isPaused;
-        pauseMenuUI.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0f : 1f;
+void TogglePause()
+{
+    isPaused = !isPaused;
 
-    }
+    pauseMenuUI.SetActive(isPaused);
+    tutorialBox.SetActive(false);
 
-    public void ResumeGame()
-    {
-        isPaused = false;
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-    }
+    Time.timeScale = isPaused ? 0f : 1f;
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene("Scene 1 DEMO 1");
-    }
-    public void QuitToMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-    public void QuitGame()
-   {
-        Application.Quit();
-    }
+    if (isPaused)
+        SelectButton(pauseFirstButton);
+}
+
+public void ShowTutorials()
+{
+    tutorialBox.SetActive(true);
+    pauseMenuUI.SetActive(false);
+
+    Time.timeScale = 0f;
+    isPaused = true;
+
+    SelectButton(tutorialFirstButton);
+}
+public void ExitTutorial()
+{
+    tutorialBox.SetActive(false);
+    pauseMenuUI.SetActive(true);
+
+    Time.timeScale = 0f;
+    isPaused = true;
+
+    SelectButton(pauseFirstButton);
+}
+private void SelectButton(GameObject button)
+{
+    EventSystem.current.SetSelectedGameObject(null);
+    EventSystem.current.SetSelectedGameObject(button);
+}
 
 }

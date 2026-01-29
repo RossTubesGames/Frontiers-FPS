@@ -816,6 +816,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7908487294917952464, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908487294917952464, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: dashKey
       value: 101
@@ -823,7 +831,7 @@ PrefabInstance:
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: grappler
       value: 
-      objectReference: {fileID: 733295803}
+      objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: maxJumps
       value: 2
@@ -3421,7 +3429,7 @@ PrefabInstance:
     - target: {fileID: 8137782328887498071, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: grapplerGun
       value: 
-      objectReference: {fileID: 733295803}
+      objectReference: {fileID: 0}
     - target: {fileID: 8682735975829665155, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -8900,17 +8908,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &733295803 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6946968391163108242, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
-  m_PrefabInstance: {fileID: 7365821745701898507}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1353438840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fa2d428807e7d540abe58b7d483875f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &737604281
 GameObject:
   m_ObjectHideFlags: 0
@@ -48107,11 +48104,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1353438840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2304612728308437067, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
-  m_PrefabInstance: {fileID: 7365821745701898507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1356924602
 Mesh:
   m_ObjectHideFlags: 0
@@ -100416,7 +100408,7 @@ PrefabInstance:
     - target: {fileID: 7611362093361722063, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
       propertyPath: 'weapons.Array.data[3]'
       value: 
-      objectReference: {fileID: 1353438840}
+      objectReference: {fileID: 0}
     - target: {fileID: 7611362093361722063, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
       propertyPath: 'weapons.Array.data[4]'
       value: 
@@ -100445,6 +100437,14 @@ PrefabInstance:
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 97589771}
+    - target: {fileID: 9220216465105534129, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
+      propertyPath: range
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220216465105534129, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
+      propertyPath: radius
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3818228676227224875, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
     - {fileID: 1310696049515546666, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}

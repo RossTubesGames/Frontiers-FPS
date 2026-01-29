@@ -39,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wallNormalMinY = 0.2f;
     [SerializeField] private float extraWallSlideDown = 0.0f;
 
+    [Header("Dash Attack")]
+    [SerializeField] private Melee melee;
+    [SerializeField] private bool punchOnDash = true;
+
     [Header("Dash")]
     [SerializeField] private KeyCode dashKey = KeyCode.Z;
     [SerializeField] private float dashSpeed = 20f;
@@ -84,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         // We control gravity ourselves for consistent jump feel.
         rb.useGravity = false;
 
+        if (melee == null) melee = GetComponentInChildren<Melee>();
         if (yawSource == null) yawSource = transform;
         if (!grappler) grappler = GetComponentInChildren<GrapplerGun>();
 
@@ -305,6 +310,11 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 v = rb.linearVelocity;
         rb.linearVelocity = new Vector3(0f, v.y, 0f);
+
+        if (punchOnDash && melee != null)
+        {
+            melee.PerformPunch();
+        }
     }
 
     private void HandleJumpWhileDashing()

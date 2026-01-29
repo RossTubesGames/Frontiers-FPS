@@ -10,39 +10,49 @@ public class Melee : MonoBehaviour
     [Header("Punch Shape")]
     [SerializeField] private float range = 1.2f;
     [SerializeField] private float radius = 0.5f;
-    [SerializeField] private float maxAngle = 55f; // 3D cone in front
+    [SerializeField] private float maxAngle = 55f;
 
     [Header("Timing")]
     [SerializeField] private float cooldown = 0.25f;
+
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private string punchTriggerName = "Punch";
-   
+    [SerializeField] private string attackTriggerName = "Attack";
 
     private float nextTime;
 
-
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && Time.time >= nextTime)
+        if (Input.GetMouseButtonDown(1))
         {
-            nextTime = Time.time + cooldown;
-            if (animator != null)
-            animator.SetTrigger(punchTriggerName);
-            Punch();
+            PerformPunch();
         }
+    }
+
+    public void PerformPunch()
+    {
+        if (Time.time < nextTime)
+            return;
+
+        nextTime = Time.time + cooldown;
+
+        if (animator != null)
+        {
+            animator.SetTrigger(punchTriggerName);
+            animator.SetTrigger(attackTriggerName);
+        }
+
+        Punch();
     }
 
     private void Punch()
     {
-        animator.SetTrigger("Attack");
-        //Play the sword swinging sound
         FMODUnity.RuntimeManager.PlayOneShot("event:/Axe swings");
 
-        //defines where the sphere is casted
-        Vector3 origin = transform.position; //origin is punchers position so the player
-        Vector3 forward = transform.forward.normalized; //forward direction the punchers is facing
-        Vector3 center = origin + forward * range; //center is the point infront of the player at distance range
+        Vector3 origin = transform.position;
+        Vector3 forward = transform.forward.normalized;
+        Vector3 center = origin + forward * range;
 
         Collider[] hits = Physics.OverlapSphere(center, radius, hitMask, QueryTriggerInteraction.Ignore);
 

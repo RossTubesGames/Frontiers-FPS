@@ -10643,9 +10643,17 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: melee
+      value: 
+      objectReference: {fileID: 1629635845}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: dashKey
       value: 101
       objectReference: {fileID: 0}
+    - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1629635844}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: grappler
       value: 
@@ -67227,7 +67235,7 @@ PrefabInstance:
     - target: {fileID: 3907734826504669859, guid: 46df413fb883c7a42aa5b53a94d7a73d, type: 3}
       propertyPath: keyPrefab
       value: 
-      objectReference: {fileID: 188364904}
+      objectReference: {fileID: 1314423406409718990, guid: 69dec4ce6faccbf498a93d4205889d11, type: 3}
     - target: {fileID: 5106728941407815503, guid: 46df413fb883c7a42aa5b53a94d7a73d, type: 3}
       propertyPath: health
       value: 20
@@ -147847,6 +147855,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1629635844 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7746002466036500239, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
+  m_PrefabInstance: {fileID: 7365821745701898507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629635845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9220216465105534129, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
+  m_PrefabInstance: {fileID: 7365821745701898507}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0989fc36a0d5db41b7c7a2b29c83d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1641156523
 Mesh:
   m_ObjectHideFlags: 0

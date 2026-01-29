@@ -39,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float wallNormalMinY = 0.2f;
     [SerializeField] private float extraWallSlideDown = 0.0f;
 
+    [Header("Grapple Lock")]
+    [SerializeField] private KeyCode ungrappleKey = KeyCode.V;
+    [SerializeField] private bool lockMovementWhileGrappling = true;
+
+    private bool movementLocked;
+
     [Header("Dash Attack")]
     [SerializeField] private Melee melee;
     [SerializeField] private bool punchOnDash = true;
@@ -139,6 +145,8 @@ public class PlayerMovement : MonoBehaviour
         currentSpeed=(transform.position-lastPosition).magnitude/Time.deltaTime;
         lastPosition=transform.position;
 
+        movementLocked = lockMovementWhileGrappling && (grappler != null && grappler.IsGrappling);
+
         if (Input.GetKeyDown(KeyCode.Space))
             jumpQueued = true;
 
@@ -162,12 +170,16 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = e;
 
         // Start dash
-        if (dashQueued)
+        if (!movementLocked && dashQueued)
         {
             dashQueued = false;
 
             if (!isGrappling && Time.time >= nextDashTime && (!requireGroundedToDash || grounded))
                 StartDash();
+        }
+        else
+        {
+            dashQueued = false;
         }
 
         // Input movement (horizontal)
@@ -235,14 +247,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Apply movement (unless grappling)
-        if (!isGrappling)
+        if (!movementLocked && !isGrappling)
         {
             Vector3 v = rb.linearVelocity;
             rb.linearVelocity = new Vector3(wishVel.x, v.y, wishVel.z);
         }
 
         // Jump
-        if (jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
+        if (!movementLocked && jumpQueued && jumpsRemaining > 0 && Time.time >= nextJumpTime)
         {
             jumpQueued = false;
             jumpsRemaining--;

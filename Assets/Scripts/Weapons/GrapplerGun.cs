@@ -22,7 +22,7 @@ public class GrapplerGun : MonoBehaviour
 
     [Header("Shoot")]
     [SerializeField] private float maxDistance = 40f;
-    [SerializeField] private KeyCode fireKey = KeyCode.Mouse0;
+    [SerializeField] private KeyCode fireKey = KeyCode.V;
 
     [Header("Pull Settings")]
     [SerializeField] private float pullForce = 35f;

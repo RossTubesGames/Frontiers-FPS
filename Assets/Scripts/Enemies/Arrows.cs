@@ -37,7 +37,6 @@ public class Arrows : MonoBehaviour
     {
         void TakeDamage(float amount);
     }
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();

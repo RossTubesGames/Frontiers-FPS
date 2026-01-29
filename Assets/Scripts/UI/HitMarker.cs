@@ -1,16 +1,36 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HitMarker : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Image hitMarkerImage;
+    [SerializeField] private float visibleTime = 0.08f;
+
+    private Coroutine routine;
+
+    private void Awake()
     {
-        
+        if (hitMarkerImage != null)
+            hitMarkerImage.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Show()
     {
-        
+        if (hitMarkerImage == null)
+            return;
+
+        if (routine != null)
+            StopCoroutine(routine);
+
+        routine = StartCoroutine(ShowRoutine());
+    }
+
+    private IEnumerator ShowRoutine()
+    {
+        hitMarkerImage.enabled = true;
+        yield return new WaitForSeconds(visibleTime);
+        hitMarkerImage.enabled = false;
+        routine = null;
     }
 }

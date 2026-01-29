@@ -1,6 +1,7 @@
 <!-- UNITY CODE ASSIST INSTRUCTIONS START -->
 - Project name: Frontiers-FPS
 - Unity version: Unity 6000.0.56f1
+<<<<<<< HEAD
 - Active scene:
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Enemy
@@ -10,4 +11,10 @@
   - Name: PriestAnimatedTextured 1
   - Tag: Enemy
   - Layer: Default
+=======
+- Active game object:
+  - Name: GameOverText (1)
+  - Tag: Untagged
+  - Layer: UI
+>>>>>>> 10ecb6c0350e05a055cc8ffaca183837457adc1d
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

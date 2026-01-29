@@ -24,7 +24,7 @@ public class Melee : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && Time.time >= nextTime)
+        if (Input.GetMouseButtonDown(1) && Time.time >= nextTime)
         {
             nextTime = Time.time + cooldown;
             if (animator != null)

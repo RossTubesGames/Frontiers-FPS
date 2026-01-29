@@ -201778,6 +201778,10 @@ PrefabInstance:
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 97589771}
+    - target: {fileID: 8220475743686870587, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
+      propertyPath: hitImpactLifetime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8945165189213555725, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
       propertyPath: m_Enabled
       value: 0

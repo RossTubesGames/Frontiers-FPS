@@ -17,9 +17,10 @@ public class Melee : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator animator;
     [SerializeField] private string punchTriggerName = "Punch";
-
+   
 
     private float nextTime;
+
 
     private void Update()
     {
@@ -34,6 +35,7 @@ public class Melee : MonoBehaviour
 
     private void Punch()
     {
+        animator.SetTrigger("Attack");
         //Play the sword swinging sound
         FMODUnity.RuntimeManager.PlayOneShot("event:/Axe swings");
 

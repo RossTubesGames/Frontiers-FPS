@@ -5,8 +5,6 @@ public class EnemyWithKey : MonoBehaviour
     [SerializeField] private GameObject keyPrefab;
 
     private bool keyDropped;
-
-    // Call this from your enemy health script when it actually dies
     public void DropKeyOnce()
     {
         if (keyDropped) return;
@@ -20,4 +18,12 @@ public class EnemyWithKey : MonoBehaviour
 
         Instantiate(keyPrefab, transform.position, Quaternion.identity);
     }
+    public void OnDestroy()
+    {
+        Debug.Log("Drop");
+        if(PlayerHealth.isDead==true) return;
+        Debug.Log("Drop");
+        DropKeyOnce();
+    }
+
 }

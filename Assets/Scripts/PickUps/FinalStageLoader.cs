@@ -8,7 +8,7 @@ public class FinalStageLoader : MonoBehaviour
     {
         if(KeyPickUp.hasFirstKey&&KeyPickUp.hasSecondKey)
         {
-            SceneManager.LoadScene("Credits");
+            SceneManager.LoadScene("Scene 2 DEMO 2");
         }
         else
         {

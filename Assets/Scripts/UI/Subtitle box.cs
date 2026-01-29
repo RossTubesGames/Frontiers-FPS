@@ -3,11 +3,15 @@ using TMPro;
 using System.Collections;
 public class Subtitlebox : MonoBehaviour
 {
+    public static Subtitlebox instance;
     [SerializeField] private TMP_Text healText;
     [SerializeField] private GameObject textHolder;
-
+    
     private Coroutine healCoroutine;
-
+    void Awake()
+    {
+        instance=this;
+    }
     public void ShowHealText(float amount, float time)
     {
         healText.text = $"Healed {amount}";
@@ -34,4 +38,8 @@ public class Subtitlebox : MonoBehaviour
         yield return new WaitForSeconds(3);
         textHolder.SetActive(false);
     }
+    void OnDisable()
+{
+    StopAllCoroutines();
+}
 }

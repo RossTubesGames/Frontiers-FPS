@@ -24,6 +24,7 @@ public class Revolver : MonoBehaviour
 
     [Header("Impact Cleanup")]
     [SerializeField] private float hitImpactLifetime = 30f;
+    [SerializeField]private Animator animator;
 
     private int ammoInMag;
     private int reserveAmmo;
@@ -70,6 +71,7 @@ public class Revolver : MonoBehaviour
 
     private void Fire()
     {
+        animator.SetTrigger("Shoot");
         nextFireTime = Time.time + fireCooldown;
         ammoInMag--;
 
@@ -108,6 +110,8 @@ public class Revolver : MonoBehaviour
 
     private void StartReload()
     {
+        animator.SetTrigger("Reload");
+
         if (reloading) return;
         if (ammoInMag >= magazineSize) return;
         if (reserveAmmo <= 0) return;

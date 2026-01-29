@@ -32,15 +32,18 @@ private void RotateTowardsPlayerFull3D()
     private void Update()
 {
     if (player == null) return;
+    Debug.Log("player not found");
 
     float distance = Vector3.Distance(transform.position, player.position);
 
     if (distance <= detectionRange)
     {
+        Debug.Log("RotATION WORKING");
         RotateTowardsPlayerFull3D();
 
         if (Time.time >= nextFireTime)
         {
+              Debug.Log("sHOOTING WORKING");
             nextFireTime = Time.time + fireRate;
             Shoot();
         }
@@ -49,7 +52,7 @@ private void RotateTowardsPlayerFull3D()
 private void AimFirePointAtPlayer()
 {
     if (firePoint == null) return;
-
+      Debug.Log("aIM WORKING");
     Vector3 dir = (player.position - firePoint.position).normalized;
     firePoint.rotation = Quaternion.LookRotation(dir);
 }

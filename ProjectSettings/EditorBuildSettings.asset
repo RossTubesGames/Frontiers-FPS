@@ -6,11 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 375054a017b70914eb2ee4645298a3ab
+    path: Assets/Scenes/MainMenuTodor.unity
+    guid: b6ca598267d6d2f47b63aa656f5deed5
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 682d4adf73b774a44b0de0b4db62ff3d
+    path: Assets/Scenes/Scene 1 DEMO 2.unity
+    guid: 331ee0c82c872214bb517d301670caa4
+  - enabled: 1
+    path: Assets/Scenes/Scene 2 DEMO 2.unity
+    guid: 2143bb82bd285594093e8151aff7d601
+  - enabled: 1
+    path: Assets/Scenes/EndSceneWin.unity
+    guid: 771a62f3ca31a2b47ad95827faf527a3
+  - enabled: 1
+    path: Assets/Scenes/GameOverTodor.unity
+    guid: 5bf837f7ee43ab646a39fc10fb2dd752
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: c1d4354362614704180efa23340c9542

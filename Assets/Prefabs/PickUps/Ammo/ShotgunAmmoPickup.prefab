@@ -107,6 +107,7 @@ MonoBehaviour:
   playerTag: Player
   destroyOnPickup: 1
   searchFromPlayerRoot: 1
+  subtitlebox: {fileID: 0}
 --- !u!65 &3410839135583403379
 BoxCollider:
   m_ObjectHideFlags: 0

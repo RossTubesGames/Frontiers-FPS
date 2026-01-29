@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMOD;
 public class EnemyHealth : MonoBehaviour,Arrows.IDamageable
 {
 
@@ -6,6 +7,7 @@ public class EnemyHealth : MonoBehaviour,Arrows.IDamageable
 
     public void TakeDamage(float damage)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Cultist");
         health -= damage;
 
         if (health <= 0f)

@@ -2281,7 +2281,6 @@ GameObject:
   - component: {fileID: 7862579288711974093}
   - component: {fileID: 7531967677418532526}
   - component: {fileID: 3552382914184590825}
-  - component: {fileID: 2735217197675462013}
   m_Layer: 0
   m_Name: SpiderBody
   m_TagString: Enemy
@@ -2361,20 +2360,6 @@ MonoBehaviour:
   animator: {fileID: 2098865410603674234}
   walkSpeedThreshold: 0.05
   startState: 0
---- !u!114 &2735217197675462013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5271019113299087484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f650dc8a8c7da4194fcce231679c83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key2Prefab: {fileID: 1314423406409718990, guid: ae8935c1a54637b44ab186c45db3a2c5, type: 3}
-  health: 800
 --- !u!1 &5273609976950702603
 GameObject:
   m_ObjectHideFlags: 0

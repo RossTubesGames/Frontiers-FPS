@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5838158387616339171}
   - component: {fileID: 3278621131410626237}
   - component: {fileID: 3017164698379102042}
-  - component: {fileID: 1591411969992006784}
   m_Layer: 9
   m_Name: Key Vindicator Two
   m_TagString: Untagged
@@ -176,21 +175,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1591411969992006784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4530766642730106106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ff49395e733dd45ab886fc60eec4a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsToToggle:
-  - target: {fileID: 0}
-    setActive: 0
-  - target: {fileID: 0}
-    setActive: 0
-  triggeringTag: Player

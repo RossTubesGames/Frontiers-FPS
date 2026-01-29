@@ -12,9 +12,11 @@ public class HealPickUp : MonoBehaviour
     [SerializeField] private TMP_Text display;
     [SerializeField] private float displayTime;
     [SerializeField]private GameObject textHolder;
+    [SerializeField]private GameObject healFeedback;
     
  private void OnTriggerEnter(Collider other)
 {
+    StartCoroutine(HealFeedback());
     Debug.Log("enter");
     if (!other.CompareTag("Player"))
         return;
@@ -31,4 +33,10 @@ public class HealPickUp : MonoBehaviour
 
     Destroy(gameObject);
 }
+    public IEnumerator HealFeedback()
+    {
+        healFeedback.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        healFeedback.SetActive(false);
+    }
 }

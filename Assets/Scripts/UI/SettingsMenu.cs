@@ -7,8 +7,16 @@ public class SettingsMenu : MonoBehaviour
    [SerializeField] private GameObject settingsMenu;
    [SerializeField] private GameObject settingsFirstSelected; 
    [SerializeField] private GameObject previousMenu;
-
-
+   [SerializeField]private GameObject previousMenuFirstSelected;
+    void Start()
+    {
+        SetStartVolume();
+    }
+    public void SetStartVolume()
+    {
+        float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 0.75f);
+        SetMasterVolume(savedVolume);
+    }
     public void SetMasterVolume(float value)
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName(
@@ -42,6 +50,7 @@ public void HideSettings()
     settingsMenu.SetActive(false);
     if (previousMenu != null)
     previousMenu.SetActive(true);
-     UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(null);
+             EventSystem.current.SetSelectedGameObject(previousMenuFirstSelected);
+
 }
 }

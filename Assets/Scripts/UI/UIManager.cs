@@ -13,10 +13,12 @@ public class UIManager : MonoBehaviour
 [SerializeField] private GameObject tutorialFirstButton;
 
  private bool isPaused = false;
+     [SerializeField]private SettingsMenu settingsMenu;
      void Start()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        settingsMenu.SetStartVolume();
     }
     public void ShowGameOverScreen()
     {
@@ -67,5 +69,6 @@ private void SelectButton(GameObject button)
     EventSystem.current.SetSelectedGameObject(null);
     EventSystem.current.SetSelectedGameObject(button);
 }
+
 
 }

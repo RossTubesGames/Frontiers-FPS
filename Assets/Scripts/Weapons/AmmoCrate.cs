@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class AmmoCrate : MonoBehaviour
 {
     [Header("Pickup Amounts")]
@@ -63,6 +62,7 @@ public class AmmoCrate : MonoBehaviour
 
         if (revolver != null && revolverBullets > 0)
         {
+            Subtitlebox.instance.ShowText("Got revolver ammo",3f);
             revolver.AddReserveAmmo(revolverBullets);
             gaveAny = true;
         }
@@ -71,6 +71,8 @@ public class AmmoCrate : MonoBehaviour
         {
             shotGun.AddReserveAmmo(shotgunShells);
             gaveAny = true;
+            Subtitlebox.instance.ShowText("Got shotgun ammo",3f);
+
         }
 
         if (!gaveAny) return;

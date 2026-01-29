@@ -125235,6 +125235,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1203904898210170534, guid: f535c9441cc49e046992f292e9c726b3, type: 3}
   m_PrefabInstance: {fileID: 992785514}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &996300960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 996300961}
+  - component: {fileID: 996300963}
+  - component: {fileID: 996300962}
+  m_Layer: 0
+  m_Name: MapBoarder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &996300961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996300960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -41.451862, y: 25.70135, z: -120.40253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996300962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996300960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d124f404e0b09e44a011b4d6351bf38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instantKill: 1
+  damageAmount: 9999
+  playerTag: Player
+--- !u!65 &996300963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996300960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 600, y: 5, z: 600}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1000460670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201767,3 +201836,4 @@ SceneRoots:
   - {fileID: 1979447391}
   - {fileID: 753101363}
   - {fileID: 1651992955}
+  - {fileID: 996300961}

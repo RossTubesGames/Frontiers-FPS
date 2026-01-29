@@ -9873,7 +9873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: maxJumps
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: dashSpeed
@@ -9889,7 +9889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: jumpHeight
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8226853423774161273, guid: 2b0d7d79aadceb44cb378653afdf2a6e, type: 3}
       propertyPath: timeToApex
@@ -14607,17 +14607,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5122372015243947201, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
   m_PrefabInstance: {fileID: 1832410880}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1478206561 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6826817406148046069, guid: cdf75646088f012479ffb45b5bd1670e, type: 3}
-  m_PrefabInstance: {fileID: 1832410880}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1478206559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 601c52a548481aa47bff4c7edbb0c771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1515956846
 GameObject:
   m_ObjectHideFlags: 0
@@ -17865,7 +17854,7 @@ PrefabInstance:
     - target: {fileID: 7679947712463221473, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: crossBow
       value: 
-      objectReference: {fileID: 1478206561}
+      objectReference: {fileID: 0}
     - target: {fileID: 8934718438383001823, guid: 11adcc11e5d1b744e991bcbf399ef00c, type: 3}
       propertyPath: playerHealth
       value: 

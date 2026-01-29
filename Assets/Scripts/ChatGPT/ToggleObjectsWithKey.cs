@@ -7,29 +7,17 @@ public class ToggleObjectsWithKey : MonoBehaviour
     public KeyCode toggleKey = KeyCode.E;
 
     [Header("Objects")]
-    public List<ToggleEntry> objects = new List<ToggleEntry>();
-
-    void Start()
-    {
-        // Apply initial A/B state
-        foreach (ToggleEntry entry in objects)
-        {
-            if (entry.target != null)
-            {
-                entry.target.SetActive(entry.startsOn);
-            }
-        }
-    }
+    public List<ToggleEntry> objectsToToggle = new List<ToggleEntry>();
 
     void Update()
     {
-        if (!Input.GetKeyDown(toggleKey))
-            return;
-
-        foreach (ToggleEntry entry in objects)
+        if (Input.GetKeyDown(toggleKey))
         {
-            if (entry.target != null)
+            foreach (ToggleEntry entry in objectsToToggle)
             {
+                if (!entry.enabled || entry.target == null)
+                    continue;
+
                 entry.target.SetActive(!entry.target.activeSelf);
             }
         }
@@ -39,6 +27,6 @@ public class ToggleObjectsWithKey : MonoBehaviour
 [System.Serializable]
 public class ToggleEntry
 {
-    public bool startsOn;      // A/B flag
-    public GameObject target;
+    public bool enabled = true;      // Checkbox per object
+    public GameObject target;        // Object reference
 }

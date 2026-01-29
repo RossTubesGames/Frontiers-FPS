@@ -2,7 +2,7 @@
 - Project name: Frontiers-FPS
 - Unity version: Unity 6000.0.56f1
 - Active game object:
-  - Name: A B test switcher
+  - Name: GameOverText (1)
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
